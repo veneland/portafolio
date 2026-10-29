@@ -75,7 +75,7 @@ img { max-width: 100%; height: auto; display: block; }
 /* Encabezado */
 .top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 26px; padding-bottom: 26px; }
 .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-.brand img { width: 30px; height: auto; }
+.brand img { width: clamp(132px, 15vw, 176px); height: auto; }
 .brand span { white-space: nowrap; font-family: var(--display); font-weight: 400; font-size: 0.95rem; letter-spacing: -0.01em; }
 .top nav { display: flex; gap: clamp(14px, 3vw, 30px); font-size: 0.95rem; }
 .top nav a { text-decoration: none; color: var(--ink-soft); }
@@ -183,6 +183,8 @@ img { max-width: 100%; height: auto; display: block; }
 .contact .actions .btn.ghost:hover { background: #EDE9E2; color: #1A1716; }
 .fine { margin-top: clamp(56px, 8vw, 96px); padding-top: 22px; border-top: 1px solid #3A3532; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 0.88rem; color: #8F897F; }
 .fine p { color: inherit; max-width: none; }
+.foot-logo { display: block; width: clamp(220px, 30vw, 340px); height: auto; margin-top: clamp(56px, 8vw, 96px); }
+.foot-logo + .fine { margin-top: 32px; }
 
 /* Entrada única del hero */
 .hero h1, .hero .who, .hero .actions { animation: rise .9s var(--ease) both; }
@@ -194,8 +196,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 <header class="wrap top">
   <a class="brand" href="#inicio" aria-label="Inicio">
-    <img src="img/icon.svg" alt="" width="30" height="28">
-    <span>Venecia D. Blanco R.</span>
+    <img src="img/logo-veneland.svg" alt="veneland. Sistemas Creativos por Venecia D Blanco R" width="1117" height="357">
   </a>
   <nav aria-label="Secciones">
     <a href="#metodo" class="hide-sm">Cómo trabajo</a>
@@ -421,6 +422,7 @@ img { max-width: 100%; height: auto; display: block; }
       <a class="btn ghost" href="cv/CV_Adriana_Blanco_ES.pdf">Descargar CV</a>
       <a class="btn ghost" href="https://github.com/veneland">GitHub</a>
     </div>
+    <img class="foot-logo" src="img/logo-veneland.svg" alt="veneland. Sistemas Creativos por Venecia D Blanco R" width="1117" height="357" loading="lazy">
     <div class="fine">
       <p>Venecia es mi marca personal; mi nombre legal es Adriana D. Blanco R.</p>
       <p>Código de los proyectos privado. Recorrido técnico disponible a pedido.</p>
