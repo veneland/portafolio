@@ -49,6 +49,8 @@
     --bg: linear-gradient(180deg, #1A1716 0%, #221E1B 40%, #1A1716 100%);
   }
 }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .method, :root:not([data-theme="light"]) .contact { background: #110F0E; } }
+:root[data-theme="dark"] .method, :root[data-theme="dark"] .contact { background: #110F0E; }
 :root[data-theme="dark"] {
   --ink: #E9E5DE; --ink-2: #D2CCC2; --ink-soft: #A8A39A;
   --paper: #1E1B19; --paper-2: #262220; --card: #2B2724; --line: #3D3834;
@@ -100,7 +102,7 @@ img { max-width: 100%; height: auto; display: block; }
 .facts b { color: var(--ink); font-weight: 500; }
 
 /* Método: el elemento memorable */
-.method { padding: clamp(64px, 9vw, 120px) 0; background: var(--ink); color: #EDE9E2; }
+.method { padding: clamp(64px, 9vw, 120px) 0; background: #1A1716; color: #EDE9E2; }
 .method .intro { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(24px, 5vw, 72px); align-items: end; }
 .method h2 { font-family: var(--display); font-weight: 300; font-size: clamp(1.8rem, 3.6vw, 3rem); line-height: 1.06; letter-spacing: -0.02em; margin: 0; }
 .method .intro p { margin: 0; color: #BDB7AD; max-width: 46ch; }
@@ -112,7 +114,7 @@ img { max-width: 100%; height: auto; display: block; }
 .track li { position: relative; padding-right: 14px; counter-increment: paso; }
 .track li::before {
   content: counter(paso); display: grid; place-items: center; width: 39px; height: 39px; border-radius: 50%;
-  background: var(--ink); border: 1px solid #5A534E; font: 400 0.95rem/1 var(--display); color: #EDE9E2; position: relative; z-index: 1;
+  background: #1A1716; border: 1px solid #5A534E; font: 400 0.95rem/1 var(--display); color: #EDE9E2; position: relative; z-index: 1;
 }
 .track li.gate::before { background: var(--sage); color: #1A1716; border-color: var(--sage); }
 .track h3 { font: 500 1rem/1.25 var(--body); margin: 18px 0 6px; color: #F5F2EA; }
@@ -162,17 +164,18 @@ img { max-width: 100%; height: auto; display: block; }
 .visual .frame { border-radius: 8px; overflow: hidden; border: 1px solid var(--line); background: var(--card); box-shadow: 0 30px 60px -40px rgba(26,23,22,.45); }
 .visual .diagram { padding: clamp(14px, 2.4vw, 28px); background: #FBFAF6; }
 .visual .diagram img { width: 100%; height: auto; }
-.visual .phone { position: absolute; width: 27%; right: -3%; bottom: -7%; border-radius: 14px; overflow: hidden; border: 5px solid var(--ink); box-shadow: 0 24px 40px -20px rgba(26,23,22,.55); }
+.visual .phone { position: absolute; width: 27%; right: -3%; bottom: -7%; border-radius: 14px; overflow: hidden; border: 5px solid #1A1716; box-shadow: 0 24px 40px -20px rgba(26,23,22,.55); }
 .visual figcaption { margin-top: 12px; font-size: 0.88rem; color: var(--ink-soft); }
 .visual.has-phone figcaption { margin-top: clamp(30px, 6vw, 56px); max-width: 68%; }
 @media (max-width: 900px) {
   .case { grid-template-columns: 1fr; }
   .visual { order: 2; position: relative; top: auto; }
   .visual .phone { right: 4%; width: 30%; }
+  .visual.has-phone figcaption { max-width: 58%; }
 }
 
 /* Cierre */
-.contact { background: var(--ink); color: #EDE9E2; padding: clamp(64px, 9vw, 112px) 0 40px; }
+.contact { background: #1A1716; color: #EDE9E2; padding: clamp(64px, 9vw, 112px) 0 40px; }
 .contact h2 { font-family: var(--display); font-weight: 300; font-size: clamp(1.9rem, 4vw, 3.2rem); line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 18px; max-width: 18ch; }
 .contact p { color: #BDB7AD; max-width: 52ch; margin: 0; }
 .contact .actions .btn { border-color: #EDE9E2; color: #EDE9E2; }
@@ -204,7 +207,7 @@ img { max-width: 100%; height: auto; display: block; }
 <main id="inicio">
   <section class="wrap hero">
     <h1>Automatizo procesos y acompaño a equipos a trabajar con IA.</h1>
-    <p class="who"><strong>Especialista en Automatización e IA.</strong> Vengo del diseño de producto y UX/UI y me especialicé en automatización con IA. Construyo y opero mis propios sistemas en producción con n8n, agentes de IA, servidores MCP e infraestructura propia, y enseño a otras personas a construir con IA validando antes de confiar.</p>
+    <p class="who"><strong>Especialista en Automatización e IA.</strong> Vengo del diseño de producto y UX/UI y me especialicé en automatización con IA. Construyo y opero mis propios sistemas en producción con n8n, agentes de IA, servidores MCP e infraestructura propia en dos VPS, y enseño a otras personas a construir con IA validando antes de confiar.</p>
     <div class="actions">
       <a class="btn solid" href="cv/CV_Adriana_Blanco_ES.pdf">Descargar CV</a>
       <a class="btn ghost" href="cv/Resume_Adriana_Blanco_EN.pdf" hreflang="en">Resume in English</a>
@@ -213,7 +216,7 @@ img { max-width: 100%; height: auto; display: block; }
     <div class="facts">
       <span><b>12</b> workflows de n8n</span>
       <span><b>2</b> servidores MCP propios</span>
-      <span><b>10</b> instancias MT5 operando 24/7</span>
+      <span><b>2</b> VPS en producción: agentes de IA y trading 24/7</span>
       <span><b>8+</b> años en producto digital</span>
     </div>
   </section>
