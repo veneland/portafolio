@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Venecia D. Blanco R. — Automatización e IA</title>
+<meta name="description" content="Portafolio de casos de Venecia D. Blanco R. (Adriana D. Blanco R.), especialista en automatización e IA: n8n, agentes de IA, servidores MCP, infraestructura propia y acompañamiento a equipos.">
+<meta property="og:title" content="Venecia D. Blanco R. — Automatización e IA">
+<meta property="og:description" content="Sistemas en producción con n8n, agentes de IA y MCP, y un método para trabajar con IA validando antes de confiar.">
+<meta property="og:type" content="website">
+<link rel="icon" href="img/icon.svg" type="image/svg+xml">
+<style>
+/* Fuentes de marca (licencia web de la dueña). Si los archivos existen en docs/fonts/, se usan; si no, cae a Google Fonts. */
+@font-face { font-family: "Qubic Grid"; src: url("fonts/Qubic-Grid-Light.woff2") format("woff2"); font-weight: 300; font-display: swap; }
+@font-face { font-family: "Qubic Grid"; src: url("fonts/Qubic-Grid-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+/* Alternativas abiertas (OFL), autoalojadas: no dependen de servicios externos. */
+@font-face { font-family: "Unbounded"; src: url("fonts/unbounded-latin-300-normal.woff2") format("woff2"); font-weight: 300; font-display: swap; }
+@font-face { font-family: "Unbounded"; src: url("fonts/unbounded-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Unbounded"; src: url("fonts/unbounded-latin-500-normal.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Outfit"; src: url("fonts/outfit-latin-300-normal.woff2") format("woff2"); font-weight: 300; font-display: swap; }
+@font-face { font-family: "Outfit"; src: url("fonts/outfit-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Outfit"; src: url("fonts/outfit-latin-500-normal.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Ageo"; src: url("fonts/Ageo-Light.woff2") format("woff2"); font-weight: 300; font-display: swap; }
+
+:root {
+  --ink: #1A1716;
+  --ink-2: #302B29;
+  --ink-soft: #6B665E;
+  --paper: #F2EEE7;
+  --paper-2: #EAE5DC;
+  --card: #FBFAF6;
+  --line: #DCD6CB;
+  --sand: #D8C9B1;
+  --sage: #A7B3A2;
+  --sage-deep: #64705E;
+  --sage-soft: #E4E9DF;
+  --bg: linear-gradient(180deg, #F5F2EA 0%, #EFE3D0 22%, #F5F2EA 46%, #EFE3D0 70%, #F5F2EA 100%);
+  --display: "Qubic Grid", "Unbounded", system-ui, sans-serif;
+  --body: "Ageo", "Outfit", system-ui, sans-serif;
+  --wrap: 1180px;
+  --gut: clamp(20px, 5vw, 64px);
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ink: #E9E5DE; --ink-2: #D2CCC2; --ink-soft: #A8A39A;
+    --paper: #1E1B19; --paper-2: #262220; --card: #2B2724; --line: #3D3834;
+    --sage-soft: #2F362D; --sage-deep: #A7B3A2;
+    --bg: linear-gradient(180deg, #1A1716 0%, #221E1B 40%, #1A1716 100%);
+  }
+}
+:root[data-theme="dark"] {
+  --ink: #E9E5DE; --ink-2: #D2CCC2; --ink-soft: #A8A39A;
+  --paper: #1E1B19; --paper-2: #262220; --card: #2B2724; --line: #3D3834;
+  --sage-soft: #2F362D; --sage-deep: #A7B3A2;
+  --bg: linear-gradient(180deg, #1A1716 0%, #221E1B 40%, #1A1716 100%);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; color: var(--ink); background: var(--paper); background-image: var(--bg);
+  font-family: var(--body); font-weight: 300; font-size: 1.0625rem; line-height: 1.62;
+  -webkit-font-smoothing: antialiased; overflow-x: hidden;
+}
+::selection { background: var(--sage); color: #1A1716; }
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--sage-deep); outline-offset: 3px; border-radius: 4px; }
+img { max-width: 100%; height: auto; display: block; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gut); }
+
+/* Encabezado */
+.top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 26px; padding-bottom: 26px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.brand img { width: 30px; height: auto; }
+.brand span { white-space: nowrap; font-family: var(--display); font-weight: 400; font-size: 0.95rem; letter-spacing: -0.01em; }
+.top nav { display: flex; gap: clamp(14px, 3vw, 30px); font-size: 0.95rem; }
+.top nav a { text-decoration: none; color: var(--ink-soft); }
+.top nav a:hover { color: var(--ink); }
+@media (max-width: 560px) { .top nav a.hide-sm { display: none; } .brand span { font-size: 0.85rem; } .top nav { gap: 14px; font-size: 0.9rem; } }
+
+/* Hero */
+.hero { padding-top: clamp(48px, 9vw, 120px); padding-bottom: clamp(56px, 9vw, 120px); }
+.hero h1 {
+  font-family: var(--display); font-weight: 300; letter-spacing: -0.025em;
+  font-size: clamp(2.3rem, 6vw, 5rem); line-height: 1.02; margin: 0; max-width: 16ch;
+}
+.hero .who { margin: clamp(22px, 3vw, 34px) 0 0; max-width: 54ch; font-size: clamp(1.08rem, 1.5vw, 1.3rem); line-height: 1.5; color: var(--ink-2); }
+.hero .who strong { font-weight: 500; color: var(--ink); }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 999px;
+  font: 400 0.98rem/1 var(--body); text-decoration: none; border: 1px solid var(--ink); transition: background .25s var(--ease), color .25s var(--ease);
+}
+.btn.solid { background: var(--ink); color: var(--paper); }
+.btn.solid:hover { background: var(--ink-2); }
+.btn.ghost:hover { background: var(--ink); color: var(--paper); }
+.facts { display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 44px; padding-top: 22px; border-top: 1px solid var(--line); color: var(--ink-soft); font-size: 0.95rem; }
+.facts b { color: var(--ink); font-weight: 500; }
+
+/* Método: el elemento memorable */
+.method { padding: clamp(64px, 9vw, 120px) 0; background: var(--ink); color: #EDE9E2; }
+.method .intro { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(24px, 5vw, 72px); align-items: end; }
+.method h2 { font-family: var(--display); font-weight: 300; font-size: clamp(1.8rem, 3.6vw, 3rem); line-height: 1.06; letter-spacing: -0.02em; margin: 0; }
+.method .intro p { margin: 0; color: #BDB7AD; max-width: 46ch; }
+.track-wrap { position: relative; margin-top: clamp(48px, 6vw, 72px); }
+.track-wrap::before { content: ""; position: absolute; left: 0; right: 0; top: 19px; height: 1px; background: #4A4440; }
+.track-wrap .bar { position: absolute; left: 0; top: 19px; height: 1px; width: 0; background: var(--sage); transition: width 1.6s var(--ease); z-index: 0; }
+.track-wrap.on .bar { width: 100%; }
+.track { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(7, 1fr); position: relative; counter-reset: paso; }
+.track li { position: relative; padding-right: 14px; counter-increment: paso; }
+.track li::before {
+  content: counter(paso); display: grid; place-items: center; width: 39px; height: 39px; border-radius: 50%;
+  background: var(--ink); border: 1px solid #5A534E; font: 400 0.95rem/1 var(--display); color: #EDE9E2; position: relative; z-index: 1;
+}
+.track li.gate::before { background: var(--sage); color: #1A1716; border-color: var(--sage); }
+.track h3 { font: 500 1rem/1.25 var(--body); margin: 18px 0 6px; color: #F5F2EA; }
+.track p { margin: 0; font-size: 0.9rem; line-height: 1.45; color: #A8A39A; }
+.loop-note { margin-top: 36px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; border-top: 1px solid #3A3532; padding-top: 28px; }
+.loop-note p { margin: 0; font-size: 0.95rem; color: #CFC9BF; }
+.loop-note b { display: block; font-weight: 500; color: #F5F2EA; margin-bottom: 4px; }
+.method .more { display: inline-block; margin-top: 30px; color: var(--sage); text-underline-offset: 4px; }
+@media (max-width: 900px) {
+  .method .intro { grid-template-columns: 1fr; }
+  .track { grid-template-columns: 1fr; gap: 0; }
+  .track-wrap::before { left: 19px; right: auto; top: 0; bottom: 26px; width: 1px; height: auto; }
+  .track-wrap .bar { left: 19px; top: 0; height: 0; width: 1px; transition: height 1.6s var(--ease); }
+  .track-wrap.on .bar { height: calc(100% - 26px); width: 1px; }
+  .track li { display: grid; grid-template-columns: 39px 1fr; column-gap: 18px; padding: 0 0 26px; }
+  .track li::before { grid-row: span 2; }
+  .track h3 { margin: 8px 0 4px; }
+  .loop-note { grid-template-columns: 1fr; }
+}
+
+/* Stack */
+.stack { padding: clamp(40px, 6vw, 64px) 0; border-bottom: 1px solid var(--line); }
+.stack p { margin: 0; max-width: 72ch; font-size: clamp(1rem, 1.4vw, 1.15rem); color: var(--ink-2); }
+.stack p strong { font-weight: 500; color: var(--ink); }
+
+/* Casos */
+.cases { padding: clamp(64px, 9vw, 120px) 0 clamp(40px, 6vw, 80px); }
+.cases > .wrap > h2 { font-family: var(--display); font-weight: 300; font-size: clamp(1.8rem, 3.6vw, 3rem); line-height: 1.06; letter-spacing: -0.02em; margin: 0 0 12px; }
+.cases > .wrap > .lead { margin: 0 0 clamp(40px, 6vw, 72px); color: var(--ink-soft); max-width: 58ch; }
+.case { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: clamp(28px, 5vw, 72px); padding: clamp(40px, 6vw, 72px) 0; border-top: 1px solid var(--line); align-items: start; }
+.case .area { font-size: 0.92rem; color: var(--sage-deep); margin: 0 0 10px; font-weight: 400; }
+.case h3 { font-family: var(--display); font-weight: 400; font-size: clamp(1.35rem, 2.2vw, 1.85rem); line-height: 1.15; letter-spacing: -0.015em; margin: 0 0 14px; }
+.case .value { font-size: 1.12rem; line-height: 1.5; color: var(--ink); margin: 0 0 20px; }
+.case dl { margin: 0 0 22px; }
+.case dt { font-weight: 500; font-size: 0.95rem; }
+.case dd { margin: 2px 0 14px; color: var(--ink-2); font-size: 0.98rem; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 22px; padding: 0; list-style: none; }
+.chips li { font-size: 0.84rem; padding: 4px 11px; border: 1px solid var(--line); border-radius: 999px; background: var(--card); color: var(--ink-2); }
+.results { list-style: none; margin: 0 0 24px; padding: 0; border-left: 2px solid var(--sage); }
+.results li { padding: 3px 0 3px 14px; font-size: 0.98rem; }
+.results li b { font-weight: 500; }
+.case .link { text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--sage-deep); font-size: 0.98rem; }
+.case .link:hover { text-decoration-thickness: 2px; }
+.visual { position: relative; position: sticky; top: 28px; }
+.visual .diagram.tall img { max-height: 620px; width: auto; margin: 0 auto; }
+.visual figure { margin: 0; }
+.visual .frame { border-radius: 8px; overflow: hidden; border: 1px solid var(--line); background: var(--card); box-shadow: 0 30px 60px -40px rgba(26,23,22,.45); }
+.visual .diagram { padding: clamp(14px, 2.4vw, 28px); background: #FBFAF6; }
+.visual .diagram img { width: 100%; height: auto; }
+.visual .phone { position: absolute; width: 27%; right: -3%; bottom: -7%; border-radius: 14px; overflow: hidden; border: 5px solid var(--ink); box-shadow: 0 24px 40px -20px rgba(26,23,22,.55); }
+.visual figcaption { margin-top: 12px; font-size: 0.88rem; color: var(--ink-soft); }
+.visual.has-phone figcaption { margin-top: clamp(30px, 6vw, 56px); max-width: 68%; }
+@media (max-width: 900px) {
+  .case { grid-template-columns: 1fr; }
+  .visual { order: 2; position: relative; top: auto; }
+  .visual .phone { right: 4%; width: 30%; }
+}
+
+/* Cierre */
+.contact { background: var(--ink); color: #EDE9E2; padding: clamp(64px, 9vw, 112px) 0 40px; }
+.contact h2 { font-family: var(--display); font-weight: 300; font-size: clamp(1.9rem, 4vw, 3.2rem); line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 18px; max-width: 18ch; }
+.contact p { color: #BDB7AD; max-width: 52ch; margin: 0; }
+.contact .actions .btn { border-color: #EDE9E2; color: #EDE9E2; }
+.contact .actions .btn.solid { background: var(--sage); border-color: var(--sage); color: #1A1716; }
+.contact .actions .btn.ghost:hover { background: #EDE9E2; color: #1A1716; }
+.fine { margin-top: clamp(56px, 8vw, 96px); padding-top: 22px; border-top: 1px solid #3A3532; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 0.88rem; color: #8F897F; }
+.fine p { color: inherit; max-width: none; }
+
+/* Entrada única del hero */
+.hero h1, .hero .who, .hero .actions { animation: rise .9s var(--ease) both; }
+.hero .who { animation-delay: .12s; } .hero .actions { animation-delay: .22s; }
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+</style>
+</head>
+<body>
+
+<header class="wrap top">
+  <a class="brand" href="#inicio" aria-label="Inicio">
+    <img src="img/icon.svg" alt="" width="30" height="28">
+    <span>Venecia D. Blanco R.</span>
+  </a>
+  <nav aria-label="Secciones">
+    <a href="#metodo" class="hide-sm">Cómo trabajo</a>
+    <a href="#casos">Casos</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<main id="inicio">
+  <section class="wrap hero">
+    <h1>Automatizo procesos y acompaño a equipos a trabajar con IA.</h1>
+    <p class="who"><strong>Especialista en Automatización e IA.</strong> Vengo del diseño de producto y UX/UI y me especialicé en automatización con IA. Construyo y opero mis propios sistemas en producción con n8n, agentes de IA, servidores MCP e infraestructura propia, y enseño a otras personas a construir con IA validando antes de confiar.</p>
+    <div class="actions">
+      <a class="btn solid" href="cv/CV_Adriana_Blanco_ES.pdf">Descargar CV</a>
+      <a class="btn ghost" href="cv/Resume_Adriana_Blanco_EN.pdf" hreflang="en">Resume in English</a>
+      <a class="btn ghost" href="https://github.com/veneland">GitHub</a>
+    </div>
+    <div class="facts">
+      <span><b>12</b> workflows de n8n</span>
+      <span><b>2</b> servidores MCP propios</span>
+      <span><b>10</b> instancias MT5 operando 24/7</span>
+      <span><b>8+</b> años en producto digital</span>
+    </div>
+  </section>
+
+  <section class="method" id="metodo" aria-labelledby="metodo-t">
+    <div class="wrap">
+      <div class="intro">
+        <h2 id="metodo-t">Cómo trabajo y cómo acompaño a quien empieza con IA</h2>
+        <p>La IA escribe rápido; el criterio lo pone una persona. Uso este recorrido en mis proyectos y es el mismo que enseño cuando alguien construye su primera herramienta con Claude, Copilot o n8n.</p>
+      </div>
+      <div class="track-wrap" id="track"><div class="bar" aria-hidden="true"></div>
+      <ol class="track">
+        <li><h3>Problema</h3><p>Qué duele, a quién y cada cuánto.</p></li>
+        <li><h3>Especificación</h3><p>Lógica de negocio y casos esperados, antes de escribir un prompt.</p></li>
+        <li><h3>Construcción con IA</h3><p>Una skill o un prompt con el contexto justo.</p></li>
+        <li><h3>Validación</h3><p>Banco de pruebas con respuestas conocidas.</p></li>
+        <li><h3>Verificación cruzada</h3><p>Otro modelo o una persona revisa.</p></li>
+        <li class="gate"><h3>Aprobación humana</h3><p>Nadie aprueba su propio trabajo, tampoco la IA.</p></li>
+        <li><h3>Documentación</h3><p>Guía de uso y cierre de sesión con lo que falta.</p></li>
+      </ol></div>
+      <div class="loop-note">
+        <p><b>No siempre hace falta desarrollar.</b>A veces alcanza con una skill a medida o con buenas prácticas en la herramienta que la persona ya usa.</p>
+        <p><b>Si el proceso se repite, va a n8n.</b>Cuando hay reglas claras y volumen, lo convierto en un flujo mantenido por tecnología.</p>
+        <p><b>Lo sensible no entra al prompt.</b>Ni secretos, ni datos personales, ni permisos de más.</p>
+      </div>
+      <a class="more" href="https://github.com/veneland/portafolio/tree/main/casos/07-metodo-ia-acompanamiento">Leer el método completo</a>
+    </div>
+  </section>
+
+  <section class="stack" aria-label="Stack">
+    <div class="wrap">
+      <p><strong>Con qué construyo:</strong> n8n, Claude Code, Codex, Antigravity, MCP, Python, TypeScript, Next.js, PostgreSQL, Firebase, Docker, Coolify, Cloudflare, Vercel, Stripe y Figma. Microsoft Power Platform, en formación.</p>
+    </div>
+  </section>
+
+  <section class="cases" id="casos" aria-labelledby="casos-t">
+    <div class="wrap">
+      <h2 id="casos-t">Casos</h2>
+      <p class="lead">Sistemas reales, en producción o en uso. El código es privado: cada caso explica el problema, la arquitectura y los resultados, y hago el recorrido técnico en vivo a pedido.</p>
+
+      <article class="case">
+        <div>
+          <p class="area">Automatización con n8n</p>
+          <h3>Monitoreo de cuentas de trading en tiempo real</h3>
+          <p class="value">Telemetría de cuentas MT5 sin abrir terminales a mano: cada evento queda registrado y llega a Telegram en el hilo de su cuenta.</p>
+          <dl>
+            <dt>Problema</dt><dd>Cada cuenta se revisaba abriendo su terminal, sin historial ni alertas.</dd>
+            <dt>Solución</dt><dd>Un EA envía eventos a n8n, que los guarda en PostgreSQL y los publica en Telegram. Flujos programados generan resúmenes y vigilan que cada terminal siga vivo.</dd>
+          </dl>
+          <ul class="chips"><li>n8n</li><li>PostgreSQL</li><li>MQL5</li><li>Telegram</li><li>Next.js</li><li>Coolify</li></ul>
+          <ul class="results">
+            <li><b>4 workflows</b> en producción: ingesta, diario, semanal y heartbeat</li>
+            <li><b>~2,4 M</b> de registros de telemetría</li>
+            <li>Dashboard con <b>Google OAuth y 2FA</b></li>
+          </ul>
+          <a class="link" href="https://github.com/veneland/portafolio/tree/main/casos/01-monitoreo-mt5-n8n">Ver el caso completo</a>
+        </div>
+        <div class="visual">
+          <figure>
+            <div class="frame diagram"><a href="img/diag-01-monitoreo-mt5-n8n_0.svg" target="_blank" rel="noopener" title="Abrir el diagrama en grande"><img src="img/diag-01-monitoreo-mt5-n8n_0.svg" alt="Diagrama: EA de MT5 envía eventos a un webhook de n8n, que guarda en PostgreSQL y publica en Telegram; flujos programados generan resúmenes y heartbeat; un dashboard lee la base." loading="lazy"></a></div>
+            <figcaption>Arquitectura del flujo. Sistema interno: se muestra solo el diagrama.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="case">
+        <div>
+          <p class="area">IA y Model Context Protocol</p>
+          <h3>Servidores MCP propios: herramientas seguras para agentes</h3>
+          <p class="value">Los agentes de IA corren backtests y gestionan tareas solos, sin poder hacer nada que no deban.</p>
+          <dl>
+            <dt>Problema</dt><dd>Compilar, lanzar el tester y copiar resultados eran pasos manuales que cortaban el trabajo de los agentes.</dd>
+            <dt>Solución</dt><dd>Dos servidores MCP: uno compila EAs y corre backtests de MT5 y, por diseño, no puede enviar órdenes; el otro gestiona TickTick con OAuth 2.0.</dd>
+          </dl>
+          <ul class="chips"><li>MCP</li><li>Python</li><li>TypeScript</li><li>OAuth 2.0</li><li>pytest</li><li>zod</li></ul>
+          <ul class="results">
+            <li><b>8 + 15</b> herramientas expuestas a los agentes</li>
+            <li><b>78</b> corridas de backtest registradas</li>
+            <li><b>20</b> tests y módulo de seguridad sin órdenes reales</li>
+          </ul>
+          <a class="link" href="https://github.com/veneland/portafolio/tree/main/casos/03-servidores-mcp">Ver el caso completo</a>
+        </div>
+        <div class="visual">
+          <figure>
+            <div class="frame diagram tall"><a href="img/diag-03-servidores-mcp_0.svg" target="_blank" rel="noopener" title="Abrir el diagrama en grande"><img src="img/diag-03-servidores-mcp_0.svg" alt="Diagrama: un agente de IA se conecta por MCP a dos servidores; el de MT5 pasa por un módulo de seguridad antes del tester; el de TickTick usa OAuth." loading="lazy"></a></div>
+            <figcaption>Herramientas de uso local: se muestra solo el diagrama.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="case">
+        <div>
+          <p class="area">Agentes de IA y datos</p>
+          <h3>Logicore: una plataforma de inversión construida con un equipo de agentes</h3>
+          <p class="value">Cartera, investigación y validación de estrategias en un solo lugar, construido orquestando a Claude Code, Codex y Antigravity.</p>
+          <dl>
+            <dt>Problema</dt><dd>La cartera y la investigación de estrategias estaban dispersas y no eran reproducibles.</dd>
+            <dt>Solución</dt><dd>Colector en Python, PostgreSQL 16 y panel en Next.js 16, más un motor de backtest con validación fuera de muestra. Cada agente trabaja en su propio worktree y yo apruebo cada integración.</dd>
+          </dl>
+          <ul class="chips"><li>Python</li><li>PostgreSQL 16</li><li>Next.js 16</li><li>Docker</li><li>Claude Code</li><li>Codex</li></ul>
+          <ul class="results">
+            <li><b>2.536</b> variantes evaluadas con validación fuera de muestra</li>
+            <li><b>189</b> tests automatizados en Python</li>
+            <li><b>8</b> subagentes, <b>12</b> skills y <b>17</b> tareas orquestadas</li>
+          </ul>
+          <a class="link" href="https://github.com/veneland/portafolio/tree/main/casos/04-logicore-multiagente">Ver el caso completo</a>
+        </div>
+        <div class="visual">
+          <figure>
+            <div class="frame diagram"><a href="img/diag-04-logicore-multiagente_1.svg" target="_blank" rel="noopener" title="Abrir el diagrama en grande"><img src="img/diag-04-logicore-multiagente_1.svg" alt="Diagrama: la dueña aprueba; Claude Code orquesta y revisa; un tablero de tareas reparte trabajo a worktrees de Codex y Antigravity; todo vuelve a revisión y tests antes de integrarse." loading="lazy"></a></div>
+            <figcaption>Cómo se organiza el equipo de agentes. Panel con acceso privado.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="case">
+        <div>
+          <p class="area">Pagos e integraciones</p>
+          <h3>Cobro y acceso automáticos, con tarjeta o con billetera</h3>
+          <p class="value">El acceso se activa solo cuando el pago está confirmado, sin revisar nada a mano.</p>
+          <dl>
+            <dt>Problema</dt><dd>Inscripciones y suscripciones se confirmaban a mano.</dd>
+            <dt>Solución</dt><dd>Stripe Checkout con webhook firmado que activa el acceso, probado evento por evento. En Risko, pago con billetera Web3 verificado on-chain del lado del servidor; Safer suma login y pago con billetera.</dd>
+          </dl>
+          <ul class="chips"><li>Stripe</li><li>Privy</li><li>ethers</li><li>Firebase</li><li>Next.js</li><li>Vercel</li></ul>
+          <ul class="results">
+            <li>Stripe en <b>modo live</b> con webhook de firma verificada</li>
+            <li><b>8</b> tipos de evento cubiertos por pruebas end-to-end</li>
+            <li>Flujo de pago Web3 <b>implementado</b> con verificación on-chain</li>
+          </ul>
+          <a class="link" href="https://github.com/veneland/portafolio/tree/main/casos/05-pagos-stripe-web3">Ver el caso completo</a>
+        </div>
+        <div class="visual has-phone">
+          <figure>
+            <div class="frame"><img src="img/risko-pulse-desktop.webp" alt="Página de inicio de Risko Pulse: 'Opera con precisión', señales validadas en tiempo real." width="1200" height="750" loading="lazy"></div>
+            <div class="phone"><img src="img/risko-safer-mobile.webp" alt="Risko Safer en el celular." width="390" height="844" loading="lazy"></div>
+            <figcaption>Risko Pulse en escritorio y Risko Safer en el celular.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="case">
+        <div>
+          <p class="area">Producto y UX/UI</p>
+          <h3>el_espacio: la web-app de un taller de escritura</h3>
+          <p class="value">Un lugar propio para las alumnas, diseñado con tono editorial y no como una plataforma genérica.</p>
+          <dl>
+            <dt>Problema</dt><dd>El taller se gestionaba con mensajes, formularios sueltos y pagos manuales.</dd>
+            <dt>Solución</dt><dd>Sitio público, inscripción con pago, login con Google, dashboard de alumnas con consignas, encuentros, cuaderno y biblioteca, y panel para la profesora.</dd>
+          </dl>
+          <ul class="chips"><li>Next.js 15</li><li>React 19</li><li>Firebase</li><li>Stripe</li><li>Tailwind</li><li>UX/UI</li></ul>
+          <ul class="results">
+            <li>En línea en <b>elespaciolugar.com</b></li>
+            <li><b>85</b> commits en iteraciones por fases con la clienta</li>
+            <li><b>4</b> áreas: pública, taller, mentorías y administración</li>
+          </ul>
+          <a class="link" href="https://www.elespaciolugar.com">Visitar el sitio</a>
+        </div>
+        <div class="visual has-phone">
+          <figure>
+            <div class="frame"><img src="img/elespacio-home-desktop.webp" alt="Inicio de el_espacio: 'Tu nuevo sitio para escribir'." width="1200" height="750" loading="lazy"></div>
+            <div class="phone"><img src="img/elespacio-inscripcion-mobile.webp" alt="Página de inscripción de el_espacio en el celular." width="390" height="844" loading="lazy"></div>
+            <figcaption>Inicio en escritorio e inscripción en el celular. Publicado con autorización de la clienta.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="case">
+        <div>
+          <p class="area">Infraestructura</p>
+          <h3>Migración de un servidor de trading en vivo, sin perder datos</h3>
+          <p class="value">Mudanza por fases con respaldos verificados y una decisión explícita antes de cada paso irreversible.</p>
+          <dl>
+            <dt>Problema</dt><dd>El servidor había quedado chico y no podía detenerse.</dd>
+            <dt>Solución</dt><dd>Backups verificados por checksum, restauraciones de prueba, cambio de DNS por fases y traspaso instancia por instancia, con auditoría Go/No-Go antes de cancelar el servidor viejo.</dd>
+          </dl>
+          <ul class="chips"><li>Coolify</li><li>Docker</li><li>PostgreSQL</li><li>n8n</li><li>Wine + Xvfb</li><li>Cloudflare</li></ul>
+          <ul class="results">
+            <li><b>10</b> instancias MT5 migradas</li>
+            <li><b>5 de 5</b> checksums de backup verificados</li>
+            <li><b>184</b> informes por fase</li>
+          </ul>
+          <a class="link" href="https://github.com/veneland/portafolio/tree/main/casos/02-migracion-infraestructura">Ver el caso completo</a>
+        </div>
+        <div class="visual">
+          <figure>
+            <div class="frame diagram tall"><a href="img/diag-02-migracion-infraestructura_0.svg" target="_blank" rel="noopener" title="Abrir el diagrama en grande"><img src="img/diag-02-migracion-infraestructura_0.svg" alt="Diagrama: servidor de origen y de destino; dumps y extracciones con checksum pasan por prueba de restauración; cutover de DNS; auditoría Go/No-Go." loading="lazy"></a></div>
+            <figcaption>Fases de la migración. Infraestructura interna: se muestra solo el diagrama.</figcaption>
+          </figure>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="contact" id="contacto">
+  <div class="wrap">
+    <h2>¿Tienes un proceso que se hace a mano?</h2>
+    <p>Cuéntame qué se repite, quién lo sufre y cada cuánto. Te propongo cómo resolverlo, ya sea con una automatización, con una skill o con un buen hábito de uso de IA.</p>
+    <div class="actions">
+      <a class="btn solid" href="mailto:veneland.ia.lab@gmail.com">veneland.ia.lab@gmail.com</a>
+      <a class="btn ghost" href="cv/CV_Adriana_Blanco_ES.pdf">Descargar CV</a>
+      <a class="btn ghost" href="https://github.com/veneland">GitHub</a>
+    </div>
+    <div class="fine">
+      <p>Venecia es mi marca personal; mi nombre legal es Adriana D. Blanco R.</p>
+      <p>Código de los proyectos privado. Recorrido técnico disponible a pedido.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Única animación: la línea del método se completa cuando entra en pantalla.
+  (function () {
+    var t = document.getElementById('track');
+    if (!t) return;
+    if (!('IntersectionObserver' in window)) { t.classList.add('on'); return; }
+    new IntersectionObserver(function (e, o) {
+      if (e[0].isIntersecting) { t.classList.add('on'); o.disconnect(); }
+    }, { threshold: 0.35 }).observe(t);
+  })();
+</script>
+</body>
+</html>
