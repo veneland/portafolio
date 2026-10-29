@@ -1,7 +1,5 @@
 # el_espacio: producto y UX/UI de una web-app editorial para un taller de escritura
 
-> [CONFIRMAR: permiso de la clienta para mostrar el sitio]
-
 **Problema.** El taller "La Poesía de las Cosas" se gestionaba con mensajes, formularios sueltos y pagos manuales. Las alumnas no tenían un lugar propio para las consignas, los encuentros ni sus textos.
 
 **Solución.** Una web-app editorial con sitio público, inscripción con pago, login con Google, validación de alumnas, dashboard con consignas, encuentros, cuaderno y biblioteca, y un panel de administración para la profesora.
@@ -41,6 +39,9 @@ flowchart LR
 Sumaría tests de componentes y de reglas de Firestore desde la primera fase, en vez de apoyarme solo en QA manual y en scripts de pago.
 
 ## Capturas
-Sitio público en [www.elespaciolugar.com](https://www.elespaciolugar.com). Las capturas se agregarán cuando la clienta autorice mostrarlas (el sitio muestra su nombre).
+![Inicio — escritorio](capturas/elespacio-home-desktop.png)
+![Inicio — móvil](capturas/elespacio-home-mobile.png)
+![Inscripción — escritorio](capturas/elespacio-inscripcion-desktop.png)
+![Inscripción — móvil](capturas/elespacio-inscripcion-mobile.png)
 
 > Código privado. Recorrido técnico disponible a pedido.

@@ -13,6 +13,7 @@
 - Webhook con verificación de firma de Stripe. <!-- fuente: WOS/_reports/INVENTARIO_STACK_2026-10.md §3.8 -->
 - 8 tipos de evento de Stripe cubiertos por scripts e2e y de smoke test (checkout, factura pagada o fallida, reembolso, cambios de suscripción, pagos asíncronos). <!-- fuente: WOS/_reports/INVENTARIO_STACK_2026-10.md §3.8 -->
 - Pulse: flujo de pago con billetera **implementado** (Privy + ethers 6, verificación on-chain), no en producción. <!-- fuente: WOS/_reports/INVENTARIO_STACK_2026-10.md §3.2 y §6 -->
+- Risko Safer: el sitio en línea incluye login de usuarios y pago con billetera Web3. <!-- fuente: confirmación de la dueña, 2026-10-29; sitio en línea verificado en WOS/_reports/INVENTARIO_STACK_2026-10.md §8 -->
 
 ## Arquitectura
 
