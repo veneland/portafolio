@@ -1,6 +1,6 @@
 # el_espacio: de clases por Meet y correcciones en Word a un estudio editorial propio
 
-**En línea:** [www.elespaciolugar.com](https://www.elespaciolugar.com) (sitio público e inscripción con pago) · publicado con autorización de la clienta.
+**En línea:** [www.elespaciolugar.com](https://www.elespaciolugar.com) (sitio público, inscripción con pago y paneles de profesora y alumna) · publicado con autorización de la clienta.
 
 ## El problema
 Una editora y docente de literatura en España da talleres de poesía y narrativa para unas 36 alumnas, en grupos de 6 a 8 personas y en tres horarios. Su operación era manual:
@@ -17,8 +17,8 @@ Un producto editorial propio, no una plataforma educativa genérica. Es el únic
 |---|---|
 | **Sitio público** con identidad editorial: el taller, la profesora y los espacios | En línea |
 | **Inscripción con pago integrado** (Stripe, modo live): checkout → webhook con firma verificada → acceso activado | En línea |
-| **Panel de la profesora**, conectado a **Google Workspace** (Calendar, Meet, Drive, Docs y Gmail): los encuentros, las consignas y los documentos se crean y sincronizan solos | En desarrollo |
-| **Panel de cada alumna**: consignas editables, encuentros, cuaderno de escritura, biblioteca y feedback de la profesora en el mismo lugar | En desarrollo |
+| **Panel de la profesora**, conectado a **Google Workspace** (Calendar, Meet, Drive, Docs y Gmail): los encuentros, las consignas y los documentos se crean y sincronizan solos | En línea |
+| **Panel de cada alumna**: consignas editables, encuentros, cuaderno de escritura, biblioteca y feedback de la profesora en el mismo lugar | En línea |
 
 ## Mi rol
 Producto y UX/UI de punta a punta, y desarrollo asistido por IA:
@@ -31,7 +31,8 @@ Producto y UX/UI de punta a punta, y desarrollo asistido por IA:
 Next.js 15 · React 19 · TypeScript · Tailwind CSS · Firebase / Firestore · Google Workspace APIs · Stripe · Resend · Vercel
 
 ## Resultados hasta hoy
-- Sitio público e inscripción en línea, con pagos con Stripe en modo live.
+- Producto completo en línea: sitio, inscripción con Stripe en modo live y paneles de profesora y alumna conectados a Google Workspace.
+- En curso: ajustes finales de textos con la clienta.
 - Producto pensado para unas 36 alumnas en 3 horarios, sin que la profesora tenga que cambiar de herramienta.
 - 85 commits entre mayo y octubre de 2026, en iteraciones por fases con la clienta.
 

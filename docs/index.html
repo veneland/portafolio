@@ -33,7 +33,7 @@
   --display: "Unbounded", system-ui, sans-serif;
   --body: "Outfit", system-ui, sans-serif;
   --wrap: 1180px;
-  --gut: clamp(24px, 5vw, 64px);
+  --gut: clamp(20px, 5vw, 64px);
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
   color-scheme: dark;
 }
@@ -64,10 +64,10 @@ img { max-width: 100%; height: auto; display: block; }
 /* Hero */
 .hero { padding-top: clamp(48px, 9vw, 120px); padding-bottom: clamp(56px, 9vw, 120px); }
 .hero h1 {
-  font-family: var(--display); font-weight: 300; letter-spacing: -0.025em;
-  font-size: clamp(2.3rem, 6vw, 5rem); line-height: 1.02; margin: 0; max-width: 16ch;
+  font-family: var(--body); font-weight: 300; letter-spacing: -0.045em;
+  font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.08; margin: 0; max-width: 800px;
 }
-.hero .who { margin: clamp(22px, 3vw, 34px) 0 0; max-width: 54ch; font-size: clamp(1.08rem, 1.5vw, 1.3rem); line-height: 1.5; color: var(--ink-2); }
+.hero .who { margin: clamp(22px, 3vw, 34px) 0 0; max-width: 660px; font-size: clamp(1.08rem, 1.5vw, 1.25rem); line-height: 1.5; color: var(--ink-2); }
 .hero .who strong { font-weight: 500; color: var(--ink); }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
 .btn {
@@ -79,6 +79,8 @@ img { max-width: 100%; height: auto; display: block; }
 .btn.ghost:hover { background: var(--ink); color: var(--paper); }
 .facts { display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 44px; padding-top: 22px; border-top: 1px solid var(--line); color: var(--ink-soft); font-size: 0.95rem; }
 .facts b { color: var(--ink); font-weight: 500; }
+
+@media (max-width:599px) { .hero-break { display:none; } }
 
 /* Método: el elemento memorable */
 .method { padding: clamp(64px, 9vw, 120px) 0; background: #1A1716; color: #EDE9E2; }
@@ -304,16 +306,16 @@ img { max-width: 100%; height: auto; display: block; }
 .product-head { margin-bottom:28px; }
 .case.product-case .product-name { margin:0 0 20px; line-height:1; }
 .product-name .product-logo { display:block; width:220px; max-width:100%; height:auto; object-fit:contain; }
-.product-case:nth-of-type(2) .product-logo { width:232px; }
-.case.luma .product-name .product-logo { width:250px; }
+.case.elespacio .product-logo { width:232px; }
+.case.luma .product-name .product-logo { width:180px; }
 .product-head .area { margin-bottom:20px; }
-.product-subtitle { font:400 clamp(1.1rem,2vw,1.55rem)/1.4 var(--body); margin:0; max-width:55ch; color:var(--ink-2); }
+.product-subtitle { font:300 1.125rem/1.5 var(--body); margin:0; max-width:55ch; color:var(--ink-2); }
 .product-case .visual { position:relative; top:auto; }
-.product-case .visual figure { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,.26fr); gap:18px 22px; align-items:center; }
+.product-case .visual figure { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,.22fr); gap:18px 22px; align-items:stretch; }
 .product-case .visual .frame { width:100%; border-radius:5px; }
 .product-case .visual .frame img { width:100%; height:auto; }
-.product-case .visual .phone, .case.luma.product-case .visual .phone { position:static; width:100%; margin:0; border:1px solid var(--line); border-radius:8px; box-shadow:none; }
-.product-case .visual .phone img { width:100%; height:auto; }
+.product-case .visual .phone, .case.luma.product-case .visual .phone { position:relative; right:auto; bottom:auto; min-height:0; width:100%; margin:0; border:0; border-radius:8px; box-shadow:none; }
+.product-case .visual .phone img { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; }
 .product-case .visual figcaption { grid-column:1/-1; max-width:none; margin:0; }
 .product-story { margin-top:32px; }
 .product-case .product-story > .value { max-width:86ch; margin:0 0 28px; }
@@ -325,20 +327,23 @@ img { max-width: 100%; height: auto; display: block; }
 .product-tail .chips { margin-bottom:16px; }
 .product-tail .results { margin:0; }
 .product-case .build { margin-top:28px; }
-.product-case .build-row { max-width:900px; margin:18px auto 0; gap:16px; }
+.product-case .build-row { width:100%; margin:18px 0 0; gap:22px; }
+.case.elespacio .visual figure { grid-template-columns:minmax(0,1fr) minmax(0,.289fr); }
+.case.luma .visual figure { grid-template-columns:minmax(0,1fr) minmax(0,.244fr); }
+.cases { --gut:clamp(24px,5vw,64px); }
 @media (max-width:900px) {
  .product-details { grid-template-columns:1fr; gap:20px; }
  .product-tail { grid-template-columns:1fr; gap:24px; }
 }
 @media (max-width:599px) {
  .product-name .product-logo { width:176px; }
- .product-case:nth-of-type(2) .product-logo { width:184px; }
- .case.luma .product-name .product-logo { width:200px; }
+ .case.elespacio .product-logo { width:184px; }
+ .case.luma .product-name .product-logo { width:150px; }
  .case.product-case .product-name { margin-bottom:18px; }
- .product-subtitle { font-size:1.1rem; }
- .product-case .visual figure { grid-template-columns:1fr; gap:18px; }
- .product-case .visual .phone, .case.luma.product-case .visual .phone { width:58%; max-width:220px; justify-self:center; }
- .product-case .build-row { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+ .product-subtitle { font-size:1.0625rem; }
+ .product-case .visual figure, .case.elespacio .visual figure, .case.luma .visual figure { grid-template-columns:1fr; gap:18px; }
+ .product-case .visual .phone, .case.luma.product-case .visual .phone { display:none; }
+ .product-case .build, .desktop-caption { display:none; }
  .product-case .build-row img { border-width:2px; border-radius:8px; }
 }
 </style>
@@ -358,7 +363,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 <main id="inicio">
   <section class="wrap hero">
-    <h1>Automatizo procesos y acompaño a equipos a trabajar con IA.</h1>
+    <h1>Automatizo procesos y<br class="hero-break"> acompaño a equipos<br class="hero-break"> a trabajar con IA.</h1>
     <p class="who"><strong>Especialista en Automatización e IA.</strong> Vengo del diseño de producto y UX/UI y me especialicé en automatización con IA. Construyo y opero mis propios sistemas en producción con n8n, agentes de IA, servidores MCP e infraestructura propia en dos VPS, y enseño a otras personas a construir con IA validando antes de confiar.</p>
     <div class="actions">
       <a class="btn solid" href="cv/CV_Adriana_Blanco_ES.pdf">Descargar CV</a>
@@ -423,11 +428,37 @@ img { max-width: 100%; height: auto; display: block; }
       <h2 id="casos-t">Casos</h2>
       <p class="lead">Sistemas reales, en producción o en uso. El código es privado: cada caso explica el problema, lo que construí y por qué importa, y hago el recorrido técnico en vivo a pedido.</p>
 
+      <article class="case elespacio product-case">
+        <header class="product-head">
+          <p class="area">Diseño de producto y UX/UI</p>
+          <h3 class="product-name"><img class="product-logo" src="img/elespacio-logo-dark.svg" alt="el_espacio" width="480" height="168" loading="lazy"></h3>
+          <p class="product-subtitle">De clases por Meet y correcciones en Word a un estudio editorial propio</p>
+        </header>
+        <div class="visual has-phone">
+          <figure>
+            <div class="frame"><img src="img/elespacio-home-desktop.webp" alt="Inicio de el_espacio: 'Tu nuevo sitio para escribir'." width="1200" height="750" loading="lazy"></div>
+            <div class="phone"><img src="img/elespacio-inscripcion-mobile.webp" alt="Página de inscripción de el_espacio en el celular." width="390" height="844" loading="lazy"></div>
+            <figcaption>Inicio en escritorio<span class="desktop-caption"> e inscripción en el celular</span>. Publicado con autorización de la clienta.</figcaption>
+          </figure>
+        </div>
+        <div class="product-story">
+          <p class="value">Un producto editorial a medida para talleres de poesía y narrativa: un solo lugar donde cada alumna escribe sus consignas, conversa con la profesora y recibe su devolución.</p>
+          <dl class="product-details"><div><dt>El problema</dt><dd>La profesora armaba las consignas a mano, las enviaba por correo con una fecha de Meet para el encuentro y recibía los textos en Word, mail por mail. Con unas 36 alumnas en grupos de 6 a 8 y tres horarios, todo dependía de su bandeja de entrada.</dd></div>
+<div><dt>Lo que construí</dt><dd>Diseñé y desarrollé el producto completo, por fases con la clienta, y ya está en línea. Tiene tres partes: el sitio público, con identidad editorial y una inscripción con pago integrado; el panel de la profesora, conectado a Google (Calendar, Meet, Drive, Docs y Gmail) para que los encuentros, las consignas y los documentos se creen y se sincronicen solos; y el panel de cada alumna, donde edita sus consignas y recibe el feedback en el mismo lugar. Hoy estamos en los ajustes finales de textos con la clienta.</dd></div>
+<div><dt>¿Por qué importa?</dt><dd>No existe otro espacio editorial así: sin clases enlatadas, con un lugar propio para escribir y trabajar con la profesora. Es lo mismo que pide cualquier empresa al digitalizar un proceso: entender cómo trabaja la gente, automatizar lo repetitivo y cuidar la experiencia.</dd></div></dl>
+          <div class="product-tail"><div class="product-meta"><ul class="chips"><li>Next.js 15</li><li>React 19</li><li>Firebase</li><li>Google Workspace</li><li>Stripe</li><li>UX/UI</li></ul><a class="link" href="https://www.elespaciolugar.com">Visitar el sitio</a></div><ul class="results">
+            <li>En línea en <b>elespaciolugar.com</b>: sitio, inscripción con Stripe en <b>modo live</b> y paneles de profesora y alumna</li>
+            <li>Pensado para unas <b>36</b> alumnas en <b>3</b> horarios, sin cambiar de herramienta</li>
+            <li><b>85</b> commits en iteraciones por fases con la clienta</li>
+          </ul></div>
+        </div>
+      </article>
+
       <article class="case flagship product-case">
         <header class="product-head">
           <p class="area">Producto, automatización e IA · caso principal</p>
-          <h3 class="product-name"><img class="product-logo" src="img/risko-logo-dark.svg" alt="Risko" width="499" height="176" loading="lazy"></h3>
-          <p class="product-subtitle">un ecosistema de apps especializadas para trading e inversión</p>
+          <h3 class="product-name"><img class="product-logo" src="img/risko-logo-light.svg" alt="Risko" width="499" height="176" loading="lazy"></h3>
+          <p class="product-subtitle">Un ecosistema de apps especializadas para trading e inversión</p>
         </header>
         <div class="visual has-phone">
           <figure>
@@ -450,37 +481,11 @@ img { max-width: 100%; height: auto; display: block; }
         </div>
       </article>
 
-      <article class="case product-case">
-        <header class="product-head">
-          <p class="area">Diseño de producto y UX/UI</p>
-          <h3 class="product-name"><img class="product-logo" src="img/elespacio-logo-light.svg" alt="el_espacio" width="480" height="168" loading="lazy"></h3>
-          <p class="product-subtitle">de clases por Meet y correcciones en Word a un estudio editorial propio</p>
-        </header>
-        <div class="visual has-phone">
-          <figure>
-            <div class="frame"><img src="img/elespacio-home-desktop.webp" alt="Inicio de el_espacio: 'Tu nuevo sitio para escribir'." width="1200" height="750" loading="lazy"></div>
-            <div class="phone"><img src="img/elespacio-inscripcion-mobile.webp" alt="Página de inscripción de el_espacio en el celular." width="390" height="844" loading="lazy"></div>
-            <figcaption>Inicio en escritorio e inscripción en el celular. Publicado con autorización de la clienta.</figcaption>
-          </figure>
-        </div>
-        <div class="product-story">
-          <p class="value">Un producto editorial a medida para talleres de poesía y narrativa: un solo lugar donde cada alumna escribe sus consignas, conversa con la profesora y recibe su devolución.</p>
-          <dl class="product-details"><div><dt>El problema</dt><dd>La profesora armaba las consignas a mano, las enviaba por correo con una fecha de Meet para el encuentro y recibía los textos en Word, mail por mail. Con unas 36 alumnas en grupos de 6 a 8 y tres horarios, todo dependía de su bandeja de entrada.</dd></div>
-<div><dt>Lo que construí</dt><dd>Diseñé el producto completo y lo estoy llevando a producción por fases. Ya está en línea el sitio público, con identidad editorial y una inscripción con pago integrado. En desarrollo: el panel de la profesora, conectado a Google (Calendar, Meet, Drive, Docs y Gmail) para que los encuentros, las consignas y los documentos se creen y se sincronicen solos, y el panel de cada alumna, donde edita sus consignas y recibe el feedback en el mismo lugar.</dd></div>
-<div><dt>¿Por qué importa?</dt><dd>No existe otro espacio editorial así: sin clases enlatadas, con un lugar propio para escribir y trabajar con la profesora. Es lo mismo que pide cualquier empresa al digitalizar un proceso: entender cómo trabaja la gente, automatizar lo repetitivo y cuidar la experiencia.</dd></div></dl>
-          <div class="product-tail"><div class="product-meta"><ul class="chips"><li>Next.js 15</li><li>React 19</li><li>Firebase</li><li>Google Workspace</li><li>Stripe</li><li>UX/UI</li></ul><a class="link" href="https://www.elespaciolugar.com">Visitar el sitio</a></div><ul class="results">
-            <li>Sitio público en línea en <b>elespaciolugar.com</b>, con pagos con Stripe en <b>modo live</b></li>
-            <li>Pensado para unas <b>36</b> alumnas en <b>3</b> horarios, sin cambiar de herramienta</li>
-            <li><b>85</b> commits en iteraciones por fases con la clienta</li>
-          </ul></div>
-        </div>
-      </article>
-
       <article class="case luma product-case">
         <header class="product-head">
           <p class="area">Producto móvil, UX/UI y desarrollo Android</p>
           <h3 class="product-name"><img class="product-logo" src="img/luma-logo-dark.svg" alt="LUMA" width="373" height="259" loading="lazy"></h3>
-          <p class="product-subtitle">una app de música para Android pensada como refugio, no como feed</p>
+          <p class="product-subtitle">Una app de música para Android pensada como refugio, no como feed</p>
         </header>
         <div class="visual has-phone">
           <figure>
