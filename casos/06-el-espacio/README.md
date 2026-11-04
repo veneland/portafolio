@@ -1,47 +1,60 @@
-# el_espacio: producto y UX/UI de una web-app editorial para un taller de escritura
+# el_espacio: de clases por Meet y correcciones en Word a un estudio editorial propio
 
-**Problema.** El taller "La Poesía de las Cosas" se gestionaba con mensajes, formularios sueltos y pagos manuales. Las alumnas no tenían un lugar propio para las consignas, los encuentros ni sus textos.
+**En línea:** [www.elespaciolugar.com](https://www.elespaciolugar.com) (sitio público e inscripción con pago) · publicado con autorización de la clienta.
 
-**Solución.** Una web-app editorial con sitio público, inscripción con pago, login con Google, validación de alumnas, dashboard con consignas, encuentros, cuaderno y biblioteca, y un panel de administración para la profesora.
+## El problema
+Una editora y docente de literatura en España da talleres de poesía y narrativa para unas 36 alumnas, en grupos de 6 a 8 personas y en tres horarios. Su operación era manual:
+- armaba cada consigna a mano;
+- la enviaba por correo, con una fecha de Meet para el encuentro;
+- recibía los textos en Word, mail por mail, y devolvía sus correcciones por el mismo camino.
 
-**Stack.** Next.js 15 · React 19 · TypeScript · Tailwind CSS · Firebase / Firestore · Stripe · Resend · Vercel
+Todo dependía de su bandeja de entrada, y la experiencia no reflejaba el nivel de su trabajo.
 
-**Mi rol.** Producto y UX/UI de punta a punta: arquitectura de información, flujo de inscripción, diseño visual y las iteraciones con la clienta en ramas dedicadas. Delegué a la IA buena parte de la implementación y validé cada release candidate con checklists de QA y scripts de pago.
+## La propuesta
+Un producto editorial propio, no una plataforma educativa genérica. Es el único espacio de su tipo **sin clases enlatadas**: un lugar donde cada alumna escribe sus consignas, conversa con la profesora y recibe la devolución en el mismo sitio.
 
-**Resultados.**
-- En línea en [www.elespaciolugar.com](https://www.elespaciolugar.com). <!-- fuente: WOS/_reports/INVENTARIO_STACK_2026-10.md §8 (HTTP 200, 2026-10-28) -->
-- 85 commits entre 2026-05-21 y 2026-10-21. <!-- fuente: WOS/_reports/INVENTARIO_STACK_2026-10.md §3.8 -->
-- 4 áreas de la app separadas por grupos de rutas: pública, taller, mentorías y administración. <!-- fuente: WOS/_reports/INVENTARIO_STACK_2026-10.md §3.8 -->
-- Rutas públicas verificadas: inicio, inscripción, la profesora y acceso. <!-- fuente: WOS/_reports/INVENTARIO_STACK_2026-10.md §8 -->
-- Pagos con Stripe en modo live (ver [caso 05](../05-pagos-stripe-web3/)). <!-- fuente: WOS/_reports/INVENTARIO_STACK_2026-10.md §3.8 -->
+| Pieza | Estado |
+|---|---|
+| **Sitio público** con identidad editorial: el taller, la profesora y los espacios | En línea |
+| **Inscripción con pago integrado** (Stripe, modo live): checkout → webhook con firma verificada → acceso activado | En línea |
+| **Panel de la profesora**, conectado a **Google Workspace** (Calendar, Meet, Drive, Docs y Gmail): los encuentros, las consignas y los documentos se crean y sincronizan solos | En desarrollo |
+| **Panel de cada alumna**: consignas editables, encuentros, cuaderno de escritura, biblioteca y feedback de la profesora en el mismo lugar | En desarrollo |
+
+## Mi rol
+Producto y UX/UI de punta a punta, y desarrollo asistido por IA:
+- entendí cómo trabajaba la profesora y lo traduje a flujos y pantallas;
+- definí la arquitectura de información y el tono visual: ritmo, tipografía y espacio en blanco de libro;
+- diseñé la automatización con Google para eliminar el ir y venir de correos;
+- itero por fases con la clienta, en ramas dedicadas para cada ronda de ajustes, y valido cada versión con checklists de QA y scripts de pago end-to-end.
+
+## Stack
+Next.js 15 · React 19 · TypeScript · Tailwind CSS · Firebase / Firestore · Google Workspace APIs · Stripe · Resend · Vercel
+
+## Resultados hasta hoy
+- Sitio público e inscripción en línea, con pagos con Stripe en modo live.
+- Producto pensado para unas 36 alumnas en 3 horarios, sin que la profesora tenga que cambiar de herramienta.
+- 85 commits entre mayo y octubre de 2026, en iteraciones por fases con la clienta.
+
+## Por qué importa
+Las plataformas educativas genéricas resuelven la logística, pero no la experiencia. Este producto convierte un servicio artesanal en una plataforma escalable sin perder el tono que lo hace único. Es el mismo trabajo que pide cualquier empresa al digitalizar un proceso: entender cómo trabaja la gente, automatizar lo repetitivo y cuidar la experiencia de quien lo usa.
 
 ## Arquitectura
 
 ```mermaid
 flowchart LR
-  V[Visitante] --> PUB[Sitio público<br/>inicio · la profesora]
+  V[Visitante] --> PUB[Sitio público]
   PUB --> INS[Inscripción]
   INS --> PAY[Stripe Checkout]
   PAY -->|webhook firmado| ACC[Acceso activado]
-  ACC --> LOG[Login con Google]
-  LOG --> VAL{¿Alumna validada?}
-  VAL -->|sí| TALLER[Taller<br/>consignas · encuentros · cuaderno · biblioteca]
-  VAL -->|no| ESP[Pantalla de espera]
-  ADM[Profesora] --> PANEL[Panel admin] --> TALLER
+  ACC --> LOG[Acceso con Google]
+  LOG --> AL[Panel de la alumna<br/>consignas · cuaderno · feedback]
+  PROF[Profesora] --> ADM[Panel de la profesora]
+  ADM <-->|Calendar · Meet · Drive · Docs · Gmail| G[Google Workspace]
+  ADM --> AL
 ```
-
-## Decisiones clave
-- **Tono editorial antes que "plataforma"**: tipografía, ritmo y espacio en blanco de libro, para que el taller se sienta íntimo y no como un LMS.
-- **Grupos de rutas por audiencia**: el público, las alumnas y la profesora viven en áreas separadas, con reglas de acceso propias.
-- **Iteraciones de la clienta en ramas dedicadas**: cada ronda de ajustes visuales se revisa y se integra aparte de las funciones nuevas.
-
-## Qué haría distinto
-Sumaría tests de componentes y de reglas de Firestore desde la primera fase, en vez de apoyarme solo en QA manual y en scripts de pago.
 
 ## Capturas
 ![Inicio — escritorio](capturas/elespacio-home-desktop.png)
-![Inicio — móvil](capturas/elespacio-home-mobile.png)
-![Inscripción — escritorio](capturas/elespacio-inscripcion-desktop.png)
 ![Inscripción — móvil](capturas/elespacio-inscripcion-mobile.png)
 
 > Código privado. Recorrido técnico disponible a pedido.
