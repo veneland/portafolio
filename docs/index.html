@@ -33,7 +33,7 @@
   --display: "Unbounded", system-ui, sans-serif;
   --body: "Outfit", system-ui, sans-serif;
   --wrap: 1180px;
-  --gut: clamp(20px, 5vw, 64px);
+  --gut: clamp(24px, 5vw, 64px);
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
   color-scheme: dark;
 }
@@ -302,12 +302,12 @@ img { max-width: 100%; height: auto; display: block; }
 .stack { background:#1A1716; --ink:#E6E6E6; --ink-2:#D2CCC2; --line:#4A4440; color:var(--ink); }
 .case.product-case { display:block; }
 .product-head { margin-bottom:28px; }
-.product-title-row { display:flex; align-items:flex-start; justify-content:space-between; gap:32px; }
-.product-title-row > div { min-width:0; max-width:780px; }
-.case.product-case h3 { font:700 clamp(2.1rem,4vw,3.25rem)/1.08 var(--body); letter-spacing:-.025em; margin:0 0 12px; }
+.case.product-case .product-name { margin:0 0 20px; line-height:1; }
+.product-name .product-logo { display:block; width:220px; max-width:100%; height:auto; object-fit:contain; }
+.product-case:nth-of-type(2) .product-logo { width:232px; }
+.case.luma .product-name .product-logo { width:250px; }
+.product-head .area { margin-bottom:20px; }
 .product-subtitle { font:400 clamp(1.1rem,2vw,1.55rem)/1.4 var(--body); margin:0; max-width:55ch; color:var(--ink-2); }
-.product-logo { flex:0 0 auto; width:132px; height:54px; object-fit:contain; object-position:right center; margin-top:6px; }
-.case.luma .product-logo { width:82px; height:58px; }
 .product-case .visual { position:relative; top:auto; }
 .product-case .visual figure { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,.26fr); gap:18px 22px; align-items:center; }
 .product-case .visual .frame { width:100%; border-radius:5px; }
@@ -331,13 +331,10 @@ img { max-width: 100%; height: auto; display: block; }
  .product-tail { grid-template-columns:1fr; gap:24px; }
 }
 @media (max-width:599px) {
- .product-title-row { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:12px 16px; }
- .product-logo { width:84px; height:38px; margin-top:2px; }
- .case.luma .product-logo { width:52px; height:38px; }
- .product-title-row > div { display:contents; }
- .product-title-row h3 { grid-column:1; grid-row:1; margin:0; }
- .product-title-row .product-logo { grid-column:2; grid-row:1; }
- .product-title-row .product-subtitle { grid-column:1/-1; grid-row:2; }
+ .product-name .product-logo { width:176px; }
+ .product-case:nth-of-type(2) .product-logo { width:184px; }
+ .case.luma .product-name .product-logo { width:200px; }
+ .case.product-case .product-name { margin-bottom:18px; }
  .product-subtitle { font-size:1.1rem; }
  .product-case .visual figure { grid-template-columns:1fr; gap:18px; }
  .product-case .visual .phone, .case.luma.product-case .visual .phone { width:58%; max-width:220px; justify-self:center; }
@@ -429,10 +426,8 @@ img { max-width: 100%; height: auto; display: block; }
       <article class="case flagship product-case">
         <header class="product-head">
           <p class="area">Producto, automatización e IA · caso principal</p>
-          <div class="product-title-row">
-            <div><h3>Risko</h3><p class="product-subtitle">un ecosistema de apps especializadas para trading e inversión</p></div>
-            <img class="product-logo" src="img/risko-logo-dark.svg" alt="" aria-hidden="true" width="499" height="176" loading="lazy">
-          </div>
+          <h3 class="product-name"><img class="product-logo" src="img/risko-logo-dark.svg" alt="Risko" width="499" height="176" loading="lazy"></h3>
+          <p class="product-subtitle">un ecosistema de apps especializadas para trading e inversión</p>
         </header>
         <div class="visual has-phone">
           <figure>
@@ -458,10 +453,8 @@ img { max-width: 100%; height: auto; display: block; }
       <article class="case product-case">
         <header class="product-head">
           <p class="area">Diseño de producto y UX/UI</p>
-          <div class="product-title-row">
-            <div><h3>el_espacio</h3><p class="product-subtitle">de clases por Meet y correcciones en Word a un estudio editorial propio</p></div>
-            <img class="product-logo" src="img/elespacio-logo-light.svg" alt="" aria-hidden="true" width="480" height="168" loading="lazy">
-          </div>
+          <h3 class="product-name"><img class="product-logo" src="img/elespacio-logo-light.svg" alt="el_espacio" width="480" height="168" loading="lazy"></h3>
+          <p class="product-subtitle">de clases por Meet y correcciones en Word a un estudio editorial propio</p>
         </header>
         <div class="visual has-phone">
           <figure>
@@ -486,10 +479,8 @@ img { max-width: 100%; height: auto; display: block; }
       <article class="case luma product-case">
         <header class="product-head">
           <p class="area">Producto móvil, UX/UI y desarrollo Android</p>
-          <div class="product-title-row">
-            <div><h3>LUMA</h3><p class="product-subtitle">una app de música para Android pensada como refugio, no como feed</p></div>
-            <img class="product-logo" src="img/luma-logo-dark.svg" alt="" aria-hidden="true" width="373" height="259" loading="lazy">
-          </div>
+          <h3 class="product-name"><img class="product-logo" src="img/luma-logo-dark.svg" alt="LUMA" width="373" height="259" loading="lazy"></h3>
+          <p class="product-subtitle">una app de música para Android pensada como refugio, no como feed</p>
         </header>
         <div class="visual has-phone">
           <figure>
