@@ -1,6 +1,6 @@
 # Portafolio de casos — Venecia D. Blanco R.
 
-Especialista en Automatización e IA. Construyo y opero sistemas en producción con n8n, agentes de IA, servidores MCP e infraestructura propia, y acompaño a otras personas a trabajar con IA validando antes de confiar.
+Especialista en Automatización e IA. Construyo y opero sistemas en producción con n8n, agentes de IA, servidores MCP e infraestructura propia, diseño y desarrollo apps web y Android, y acompaño a otras personas a trabajar con IA validando antes de confiar.
 
 **Página de presentación:** https://veneland.github.io/portafolio/
 
@@ -8,6 +8,7 @@ Especialista en Automatización e IA. Construyo y opero sistemas en producción 
 |---|---|---|
 | [**Risko: ecosistema de apps para trading e inversión**](casos/risko-ecosistema/) | Cuatro apps especializadas con landing (risko.app), sistema de marca (system.risko.app) e infraestructura comunes | Next.js · Python · PostgreSQL · n8n · Web3 |
 | [el_espacio](casos/06-el-espacio/) | Producto editorial a medida para talleres de escritura: de Meet, correos y Word a un estudio propio conectado a Google | Next.js 15 · Firebase · Google Workspace · Stripe |
+| [LUMA: app de música para Android](casos/08-luma/) | Identidad completa y app nativa de música local: importación, reproducción en segundo plano y espacios atmosféricos | Kotlin · Jetpack Compose · Media3 · Android Studio |
 | [Monitoreo MT5 con n8n](casos/01-monitoreo-mt5-n8n/) | Telemetría de cuentas de trading: EA → n8n → PostgreSQL → Telegram | n8n · PostgreSQL · MQL5 · Next.js |
 | [Migración de infraestructura](casos/02-migracion-infraestructura/) | Mudanza de un servidor de trading en vivo con checksums y Go/No-Go | Coolify · Docker · Wine/Xvfb · Cloudflare |
 | [Servidores MCP](casos/03-servidores-mcp/) | Herramientas seguras para agentes: backtesting MT5 y TickTick | Python · TypeScript · MCP · OAuth 2.0 |

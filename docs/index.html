@@ -4,13 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Venecia D. Blanco R. — Automatización e IA</title>
-<meta name="description" content="Portafolio de casos de Venecia D. Blanco R. (Adriana D. Blanco R.), especialista en automatización e IA: n8n, agentes de IA, servidores MCP, infraestructura propia y acompañamiento a equipos.">
+<meta name="description" content="Portafolio de casos de Venecia D. Blanco R. (Adriana D. Blanco R.), especialista en automatización e IA: n8n, agentes de IA, servidores MCP, infraestructura propia, apps web y Android, y acompañamiento a equipos.">
 <meta property="og:title" content="Venecia D. Blanco R. — Automatización e IA">
 <meta property="og:description" content="Sistemas en producción con n8n, agentes de IA y MCP, y un método para trabajar con IA validando antes de confiar.">
 <meta property="og:type" content="website">
 <link rel="icon" href="img/icon.svg" type="image/svg+xml">
 <style>
-/* Fuentes de marca (licencia web de la dueña). Si los archivos existen en docs/fonts/, se usan; si no, cae a Google Fonts. */
 /* Alternativas abiertas (OFL), autoalojadas: no dependen de servicios externos. */
 @font-face { font-family: "Unbounded"; src: url("fonts/unbounded-latin-300-normal.woff2") format("woff2"); font-weight: 300; font-display: swap; }
 @font-face { font-family: "Unbounded"; src: url("fonts/unbounded-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-display: swap; }
@@ -32,8 +31,8 @@
   --sage-deep: #64705E;
   --sage-soft: #E4E9DF;
   --bg: linear-gradient(180deg, #F5F2EA 0%, #EFE3D0 22%, #F5F2EA 46%, #EFE3D0 70%, #F5F2EA 100%);
-  --display: "Qubic Grid", "Unbounded", system-ui, sans-serif;
-  --body: "Ageo", "Outfit", system-ui, sans-serif;
+  --display: "Unbounded", system-ui, sans-serif;
+  --body: "Outfit", system-ui, sans-serif;
   --wrap: 1180px;
   --gut: clamp(20px, 5vw, 64px);
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -182,6 +181,16 @@ img { max-width: 100%; height: auto; display: block; }
 .visual figcaption a { color: inherit; text-underline-offset: 3px; }
 .visual a.frame { display: block; }
 
+
+/* LUMA: build real en Android */
+.build { margin-top: clamp(26px, 4vw, 40px); }
+.build p { margin: 0 0 10px; font-size: 0.88rem; color: var(--ink-soft); }
+.build-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.build-row img { width: 100%; height: auto; aspect-ratio: 390 / 837; object-fit: cover; object-position: top; border-radius: 12px; border: 4px solid #1A1716; display: block; }
+.case.luma .visual .frame { background: #0C0F0E; border-color: #1E2422; }
+.case.luma .visual figure { position: relative; }
+.case.luma .visual .phone { width: 22%; bottom: -12%; }
+
 /* Qué hago por un equipo */
 .serve { padding: clamp(56px, 8vw, 104px) 0; border-top: 1px solid var(--line); }
 .serve h2 { font-family: var(--display); font-weight: 300; font-size: clamp(1.8rem, 3.6vw, 3rem); line-height: 1.06; letter-spacing: -0.02em; margin: 0 0 clamp(28px, 4vw, 48px); }
@@ -279,7 +288,7 @@ img { max-width: 100%; height: auto; display: block; }
 
   <section class="stack" aria-label="Stack">
     <div class="wrap">
-      <p><strong>Con qué construyo:</strong> n8n, Claude Code, Codex, Antigravity, MCP, Python, TypeScript, Next.js, PostgreSQL, Firebase, Docker, Coolify, Cloudflare, Vercel, Stripe y Figma. Microsoft Power Platform, en formación.</p>
+      <p><strong>Con qué construyo:</strong> n8n, Claude Code, Codex, Antigravity, MCP, Python, TypeScript, Next.js, Kotlin y Jetpack Compose (Android Studio), PostgreSQL, Firebase, Docker, Coolify, Cloudflare, Vercel, Stripe y Figma. Microsoft Power Platform, en formación.</p>
     </div>
   </section>
 
@@ -340,6 +349,42 @@ img { max-width: 100%; height: auto; display: block; }
             <div class="phone"><img src="img/elespacio-inscripcion-mobile.webp" alt="Página de inscripción de el_espacio en el celular." width="390" height="844" loading="lazy"></div>
             <figcaption>Inicio en escritorio e inscripción en el celular. Publicado con autorización de la clienta.</figcaption>
           </figure>
+        </div>
+      </article>
+
+      <article class="case luma">
+        <div>
+          <p class="area">Producto móvil, UX/UI y desarrollo Android</p>
+          <h3>LUMA: una app de música para Android pensada como refugio, no como feed</h3>
+          <p class="value">Diseñé la identidad completa y desarrollo la app nativa: importas tu propia música, suena en segundo plano y se presenta en espacios atmosféricos, sin streaming ni algoritmos que decidan por ti.</p>
+          <dl>
+            <dt>El problema</dt><dd>Las apps de música se volvieron feeds: recomendaciones, anuncios y ruido. Quien tiene su propia biblioteca (MP3, WAV o producciones propias) no tiene un lugar cuidado para escucharla.</dd>
+            <dt>Lo que construí</dt><dd>La identidad es mía: el concepto ("una cabaña en el bosque, en píxeles"), el símbolo de una luz cálida sobre el horizonte con 8 variantes, la paleta de pino, niebla y piedra, y el sistema tipográfico. Claude Design la ordenó en un sistema que los agentes de IA consumen al construir la interfaz. La app es nativa, en Kotlin con Jetpack Compose y Media3: importa MP3, WAV y bibliotecas ZIP por carpetas, arma playlists automáticas, lee las carátulas reales de cada archivo con un respaldo de marca, sigue sonando con la pantalla bloqueada (MediaSession) y tiene un modo silencioso y espacios como Fog, Pines y Snow.</dd>
+            <dt>Por qué importa</dt><dd>Una auditoría de producto con Claude Code, en modo solo lectura, encontró que la interfaz mostraba integraciones con plataformas de streaming que todavía no existían. Las saqué con Codex el mismo día. Esas integraciones siguen en el plan, pero no se muestran hasta que funcionen: una función que la interfaz promete y no cumple es peor que no tenerla.</dd>
+          </dl>
+          <ul class="chips"><li>Kotlin</li><li>Jetpack Compose</li><li>Media3 / ExoPlayer</li><li>Android Studio</li><li>Gemini</li><li>Claude Code</li><li>Codex</li><li>Identidad visual</li></ul>
+          <ul class="results">
+            <li>App instalada y en uso en mi Android: importación, reproducción en segundo plano y carátulas reales</li>
+            <li>Identidad completa: símbolo con <b>8</b> variantes, paleta, tipografía, UI y carátulas</li>
+            <li>Compilación y pruebas unitarias con Gradle verificadas en cada sprint</li>
+          </ul>
+          <a class="link" href="https://github.com/veneland/portafolio/tree/main/casos/08-luma">Ver el caso completo</a>
+        </div>
+        <div class="visual has-phone">
+          <figure>
+            <div class="frame"><img src="img/luma-identidad-hero-desktop.webp" alt="Identidad de LUMA: una luz cálida sobre una línea de horizonte, el logotipo luma y la frase Music without noise." width="1600" height="833" loading="lazy"></div>
+            <div class="phone"><img src="img/luma-diseno-home-mobile.webp" alt="Diseño de la pantalla de inicio de LUMA: saludo, espacios ambientales y escuchados recientemente." width="390" height="833" loading="lazy"></div>
+            <figcaption>Sistema visual de LUMA: la dirección de la interfaz final.</figcaption>
+          </figure>
+          <div class="build">
+            <p>La versión actual, corriendo en mi Android (en evolución hacia el diseño de arriba):</p>
+            <div class="build-row">
+              <img src="img/luma-build-splash.webp" alt="Pantalla de entrada de LUMA en el teléfono." width="390" height="837" loading="lazy">
+              <img src="img/luma-build-biblioteca.webp" alt="Biblioteca unificada con espacios Fog, Pines y Snow." width="390" height="837" loading="lazy">
+              <img src="img/luma-build-modo-silencioso.webp" alt="Modo silencioso con la canción en reproducción." width="390" height="837" loading="lazy">
+              <img src="img/luma-build-pantalla-bloqueo.webp" alt="Controles de LUMA en la pantalla de bloqueo de Android." width="390" height="867" loading="lazy">
+            </div>
+          </div>
         </div>
       </article>
 
