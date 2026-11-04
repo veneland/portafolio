@@ -297,6 +297,53 @@ img { max-width: 100%; height: auto; display: block; }
 .visual .blueprint.blueprint-dark { background:#1A1716; border-color:#3A3532; }
 .blueprint-dark .bp-description { color:#D8C9B1; border-color:#3A3532; }
 .contact .fine p { color:#BDB7AD; }
+
+/* Casos de producto: identidad, capturas y explicación en una secuencia. */
+.stack { background:#1A1716; --ink:#E6E6E6; --ink-2:#D2CCC2; --line:#4A4440; color:var(--ink); }
+.case.product-case { display:block; }
+.product-head { margin-bottom:28px; }
+.product-title-row { display:flex; align-items:flex-start; justify-content:space-between; gap:32px; }
+.product-title-row > div { min-width:0; max-width:780px; }
+.case.product-case h3 { font:700 clamp(2.1rem,4vw,3.25rem)/1.08 var(--body); letter-spacing:-.025em; margin:0 0 12px; }
+.product-subtitle { font:400 clamp(1.1rem,2vw,1.55rem)/1.4 var(--body); margin:0; max-width:55ch; color:var(--ink-2); }
+.product-logo { flex:0 0 auto; width:132px; height:54px; object-fit:contain; object-position:right center; margin-top:6px; }
+.case.luma .product-logo { width:82px; height:58px; }
+.product-case .visual { position:relative; top:auto; }
+.product-case .visual figure { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,.26fr); gap:18px 22px; align-items:center; }
+.product-case .visual .frame { width:100%; border-radius:5px; }
+.product-case .visual .frame img { width:100%; height:auto; }
+.product-case .visual .phone, .case.luma.product-case .visual .phone { position:static; width:100%; margin:0; border:1px solid var(--line); border-radius:8px; box-shadow:none; }
+.product-case .visual .phone img { width:100%; height:auto; }
+.product-case .visual figcaption { grid-column:1/-1; max-width:none; margin:0; }
+.product-story { margin-top:32px; }
+.product-case .product-story > .value { max-width:86ch; margin:0 0 28px; }
+.product-details { display:grid; grid-template-columns:1fr 1.35fr 1fr; gap:28px; }
+.product-details > div { min-width:0; border-top:1px solid var(--line); padding-top:16px; }
+.product-case .product-details dt { margin-bottom:10px; }
+.product-case .product-details dd { margin:0; }
+.product-tail { display:grid; grid-template-columns:1fr 1.25fr; gap:32px; padding-top:24px; border-top:1px solid var(--line); margin-top:28px; align-items:start; }
+.product-tail .chips { margin-bottom:16px; }
+.product-tail .results { margin:0; }
+.product-case .build { margin-top:28px; }
+.product-case .build-row { max-width:900px; margin:18px auto 0; gap:16px; }
+@media (max-width:900px) {
+ .product-details { grid-template-columns:1fr; gap:20px; }
+ .product-tail { grid-template-columns:1fr; gap:24px; }
+}
+@media (max-width:599px) {
+ .product-title-row { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:12px 16px; }
+ .product-logo { width:84px; height:38px; margin-top:2px; }
+ .case.luma .product-logo { width:52px; height:38px; }
+ .product-title-row > div { display:contents; }
+ .product-title-row h3 { grid-column:1; grid-row:1; margin:0; }
+ .product-title-row .product-logo { grid-column:2; grid-row:1; }
+ .product-title-row .product-subtitle { grid-column:1/-1; grid-row:2; }
+ .product-subtitle { font-size:1.1rem; }
+ .product-case .visual figure { grid-template-columns:1fr; gap:18px; }
+ .product-case .visual .phone, .case.luma.product-case .visual .phone { width:58%; max-width:220px; justify-self:center; }
+ .product-case .build-row { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+ .product-case .build-row img { border-width:2px; border-radius:8px; }
+}
 </style>
 </head>
 <body>
@@ -332,7 +379,7 @@ img { max-width: 100%; height: auto; display: block; }
 
   <section class="serve" aria-labelledby="serve-t">
     <div class="wrap">
-      <h2 id="serve-t">Qué hago por un equipo</h2>
+      <h2 id="serve-t">¿Qué hago por un equipo?</h2>
       <div class="serve-grid">
         <div><h3>Saco procesos del correo y la planilla</h3><p>Detecto tareas manuales y repetitivas (aprobaciones, reportes, cargas de datos) y las convierto en flujos automáticos con n8n o Power Automate, con registro, alertas y alguien que decide en los puntos críticos.</p></div>
         <div><h3>Acompaño a quien empieza con IA</h3><p>Escucho qué intenta resolver cada persona y le doy la herramienta justa: una skill a medida, buenas prácticas en Claude o Copilot, o un recorrido con etapas de validación para que lo que construye no alucine.</p></div>
@@ -345,12 +392,12 @@ img { max-width: 100%; height: auto; display: block; }
   <section class="method" id="metodo" aria-labelledby="metodo-t">
     <div class="wrap">
       <div class="intro">
-        <h2 id="metodo-t">Cómo trabajo y cómo acompaño a quien empieza con IA</h2>
+        <h2 id="metodo-t">¿Cómo trabajo y cómo acompaño a quien empieza con IA?</h2>
         <p>La IA escribe rápido; el criterio lo pone una persona. Uso este recorrido en mis proyectos y es el mismo que enseño cuando alguien construye su primera herramienta con Claude, Copilot o n8n.</p>
       </div>
       <div class="track-wrap" id="track"><div class="bar" aria-hidden="true"></div>
       <ol class="track">
-        <li><h3>Problema</h3><p>Qué duele, a quién y cada cuánto.</p></li>
+        <li><h3>Problema</h3><p>¿Qué duele, a quién y cada cuánto?</p></li>
         <li><h3>Especificación</h3><p>Lógica de negocio y casos esperados, antes de escribir un prompt.</p></li>
         <li><h3>Construcción con IA</h3><p>Una skill o un prompt con el contexto justo.</p></li>
         <li><h3>Validación</h3><p>Banco de pruebas con respuestas conocidas.</p></li>
@@ -370,7 +417,7 @@ img { max-width: 100%; height: auto; display: block; }
 
   <section class="stack" aria-label="Stack">
     <div class="wrap">
-      <p><strong>Con qué construyo:</strong> n8n, Claude Code, Codex, Antigravity, MCP, Python, TypeScript, Next.js, Kotlin y Jetpack Compose (Android Studio), PostgreSQL, Firebase, Docker, Coolify, Cloudflare, Vercel, Stripe y Figma. Microsoft Power Platform, en formación.</p>
+      <p><strong>¿Con qué construyo?</strong> n8n, Claude Code, Codex, Antigravity, MCP, Python, TypeScript, Next.js, Kotlin y Jetpack Compose (Android Studio), PostgreSQL, Firebase, Docker, Coolify, Cloudflare, Vercel, Stripe y Figma. Microsoft Power Platform, en formación.</p>
     </div>
   </section>
 
@@ -379,52 +426,43 @@ img { max-width: 100%; height: auto; display: block; }
       <h2 id="casos-t">Casos</h2>
       <p class="lead">Sistemas reales, en producción o en uso. El código es privado: cada caso explica el problema, lo que construí y por qué importa, y hago el recorrido técnico en vivo a pedido.</p>
 
-      <article class="case flagship">
-        <div>
+      <article class="case flagship product-case">
+        <header class="product-head">
           <p class="area">Producto, automatización e IA · caso principal</p>
-          <h3>Risko: un ecosistema de apps especializadas para trading e inversión</h3>
+          <div class="product-title-row">
+            <div><h3>Risko</h3><p class="product-subtitle">un ecosistema de apps especializadas para trading e inversión</p></div>
+            <img class="product-logo" src="img/risko-logo-dark.svg" alt="" aria-hidden="true" width="499" height="176" loading="lazy">
+          </div>
+        </header>
+        <div class="visual has-phone">
+          <figure>
+            <a class="frame" href="https://risko.app" target="_blank" rel="noopener"><img src="img/risko-landing-hero-desktop.webp" alt="Landing actual de Risko: símbolo turquesa sobre fondo violeta y acceso al ecosistema." width="1872" height="926" loading="lazy"></a>
+            <div class="phone"><img src="img/risko-landing-hero-mobile.webp" alt="Landing de Risko en el celular." width="350" height="787" loading="lazy"></div>
+            <figcaption>Landing del ecosistema en <a href="https://risko.app" target="_blank" rel="noopener">risko.app</a>. Las apps: <a href="https://lotsize.risko.app" target="_blank" rel="noopener">Lot Size</a>, <a href="https://safer.risko.app" target="_blank" rel="noopener">Safer</a> y <a href="https://backtest.risko.app" target="_blank" rel="noopener">Vector</a>; Logicore es de acceso privado. <a href="https://system.risko.app" target="_blank" rel="noopener">Sistema de marca</a>.</figcaption>
+          </figure>
+        </div>
+        <div class="product-story">
           <p class="value">Diseñé, construí y opero un ecosistema completo: cuatro apps que cubren cada paso de la operación, con una marca, un sistema de íconos, una landing y una infraestructura comunes.</p>
-          <dl>
-            <dt>El problema</dt><dd>Quien opera en los mercados trabaja con herramientas sueltas: una calculadora en un sitio, alertas en otro, reportes en una hoja de cálculo y la gestión del riesgo en la cabeza. Nada conversa con nada.</dd>
-            <dt>Lo que construí</dt><dd><b>Lot Size</b> calcula el riesgo de cada operación. <b>Safer</b> protege las operaciones abiertas con stops automáticos y se vende con login, licencias y pago con billeteras Web3. <b>Vector</b> analiza resultados de backtesting de MT5 con métricas de nivel institucional. <b>Logicore</b> automatiza la inversión en cripto, futuros y forex con un motor de backtesting propio. Las une una landing de producto (risko.app), un sistema de marca e íconos (system.risko.app) y un servidor 24/7 con n8n, PostgreSQL y 10 terminales de MT5.</dd>
-            <dt>Por qué importa</dt><dd>Es producto de punta a punta: estrategia, diseño, desarrollo asistido por IA, pagos, infraestructura y operación continua, en un dominio donde un error cuesta dinero real.</dd>
-          </dl>
-          <ul class="chips"><li>Next.js</li><li>React</li><li>Python</li><li>PostgreSQL</li><li>n8n</li><li>MQL5</li><li>Web3</li><li>Coolify</li></ul>
-          <ul class="results">
+          <dl class="product-details"><div><dt>El problema</dt><dd>Quien opera en los mercados trabaja con herramientas sueltas: una calculadora en un sitio, alertas en otro, reportes en una hoja de cálculo y la gestión del riesgo en la cabeza. Nada conversa con nada.</dd></div>
+<div><dt>Lo que construí</dt><dd><b>Lot Size</b> calcula el riesgo de cada operación. <b>Safer</b> protege las operaciones abiertas con stops automáticos y se vende con login, licencias y pago con billeteras Web3. <b>Vector</b> analiza resultados de backtesting de MT5 con métricas de nivel institucional. <b>Logicore</b> automatiza la inversión en cripto, futuros y forex con un motor de backtesting propio. Las une una landing de producto (risko.app), un sistema de marca e íconos (system.risko.app) y un servidor 24/7 con n8n, PostgreSQL y 10 terminales de MT5.</dd></div>
+<div><dt>¿Por qué importa?</dt><dd>Es producto de punta a punta: estrategia, diseño, desarrollo asistido por IA, pagos, infraestructura y operación continua, en un dominio donde un error cuesta dinero real.</dd></div></dl>
+          <div class="product-tail"><div class="product-meta"><ul class="chips"><li>Next.js</li><li>React</li><li>Python</li><li>PostgreSQL</li><li>n8n</li><li>MQL5</li><li>Web3</li><li>Coolify</li></ul><a class="link" href="https://github.com/veneland/portafolio/tree/main/casos/risko-ecosistema">Ver el caso completo</a></div><ul class="results">
             <li><b>3</b> apps públicas en línea y Logicore con acceso privado, unidas en <b>risko.app</b></li>
             <li><b>2.536</b> variantes de estrategias evaluadas con <b>189</b> pruebas automatizadas</li>
             <li>Login, licencias y pago con <b>billeteras Web3</b> verificado on-chain</li>
             <li>Sistema de marca e íconos propio en <b>system.risko.app</b></li>
-          </ul>
-          <a class="link" href="https://github.com/veneland/portafolio/tree/main/casos/risko-ecosistema">Ver el caso completo</a>
-        </div>
-        <div class="visual has-phone">
-          <figure>
-            <a class="frame" href="https://risko.app" target="_blank" rel="noopener"><img src="img/risko-landing-hero-desktop.webp" alt="Landing de Risko: la cápsula de la marca sobre un fondo violeta, atravesada por una línea de precio." width="1200" height="750" loading="lazy"></a>
-            <div class="phone"><img src="img/risko-landing-hero-mobile.webp" alt="Landing de Risko en el celular." width="390" height="844" loading="lazy"></div>
-            <figcaption>Landing del ecosistema en <a href="https://risko.app" target="_blank" rel="noopener">risko.app</a>. Las apps: <a href="https://lotsize.risko.app" target="_blank" rel="noopener">Lot Size</a>, <a href="https://safer.risko.app" target="_blank" rel="noopener">Safer</a> y <a href="https://backtest.risko.app" target="_blank" rel="noopener">Vector</a>; Logicore es de acceso privado. <a href="https://system.risko.app" target="_blank" rel="noopener">Sistema de marca</a>.</figcaption>
-          </figure>
+          </ul></div>
         </div>
       </article>
 
-      <article class="case">
-        <div>
+      <article class="case product-case">
+        <header class="product-head">
           <p class="area">Diseño de producto y UX/UI</p>
-          <h3>el_espacio: de clases por Meet y correcciones en Word a un estudio editorial propio</h3>
-          <p class="value">Un producto editorial a medida para talleres de poesía y narrativa: un solo lugar donde cada alumna escribe sus consignas, conversa con la profesora y recibe su devolución.</p>
-          <dl>
-            <dt>El problema</dt><dd>La profesora armaba las consignas a mano, las enviaba por correo con una fecha de Meet para el encuentro y recibía los textos en Word, mail por mail. Con unas 36 alumnas en grupos de 6 a 8 y tres horarios, todo dependía de su bandeja de entrada.</dd>
-            <dt>Lo que construí</dt><dd>Diseñé el producto completo y lo estoy llevando a producción por fases. Ya está en línea el sitio público, con identidad editorial y una inscripción con pago integrado. En desarrollo: el panel de la profesora, conectado a Google (Calendar, Meet, Drive, Docs y Gmail) para que los encuentros, las consignas y los documentos se creen y se sincronicen solos, y el panel de cada alumna, donde edita sus consignas y recibe el feedback en el mismo lugar.</dd>
-            <dt>Por qué importa</dt><dd>No existe otro espacio editorial así: sin clases enlatadas, con un lugar propio para escribir y trabajar con la profesora. Es lo mismo que pide cualquier empresa al digitalizar un proceso: entender cómo trabaja la gente, automatizar lo repetitivo y cuidar la experiencia.</dd>
-          </dl>
-          <ul class="chips"><li>Next.js 15</li><li>React 19</li><li>Firebase</li><li>Google Workspace</li><li>Stripe</li><li>UX/UI</li></ul>
-          <ul class="results">
-            <li>Sitio público en línea en <b>elespaciolugar.com</b>, con pagos con Stripe en <b>modo live</b></li>
-            <li>Pensado para unas <b>36</b> alumnas en <b>3</b> horarios, sin cambiar de herramienta</li>
-            <li><b>85</b> commits en iteraciones por fases con la clienta</li>
-          </ul>
-          <a class="link" href="https://www.elespaciolugar.com">Visitar el sitio</a>
-        </div>
+          <div class="product-title-row">
+            <div><h3>el_espacio</h3><p class="product-subtitle">de clases por Meet y correcciones en Word a un estudio editorial propio</p></div>
+            <img class="product-logo" src="img/elespacio-logo-light.svg" alt="" aria-hidden="true" width="480" height="168" loading="lazy">
+          </div>
+        </header>
         <div class="visual has-phone">
           <figure>
             <div class="frame"><img src="img/elespacio-home-desktop.webp" alt="Inicio de el_espacio: 'Tu nuevo sitio para escribir'." width="1200" height="750" loading="lazy"></div>
@@ -432,26 +470,27 @@ img { max-width: 100%; height: auto; display: block; }
             <figcaption>Inicio en escritorio e inscripción en el celular. Publicado con autorización de la clienta.</figcaption>
           </figure>
         </div>
+        <div class="product-story">
+          <p class="value">Un producto editorial a medida para talleres de poesía y narrativa: un solo lugar donde cada alumna escribe sus consignas, conversa con la profesora y recibe su devolución.</p>
+          <dl class="product-details"><div><dt>El problema</dt><dd>La profesora armaba las consignas a mano, las enviaba por correo con una fecha de Meet para el encuentro y recibía los textos en Word, mail por mail. Con unas 36 alumnas en grupos de 6 a 8 y tres horarios, todo dependía de su bandeja de entrada.</dd></div>
+<div><dt>Lo que construí</dt><dd>Diseñé el producto completo y lo estoy llevando a producción por fases. Ya está en línea el sitio público, con identidad editorial y una inscripción con pago integrado. En desarrollo: el panel de la profesora, conectado a Google (Calendar, Meet, Drive, Docs y Gmail) para que los encuentros, las consignas y los documentos se creen y se sincronicen solos, y el panel de cada alumna, donde edita sus consignas y recibe el feedback en el mismo lugar.</dd></div>
+<div><dt>¿Por qué importa?</dt><dd>No existe otro espacio editorial así: sin clases enlatadas, con un lugar propio para escribir y trabajar con la profesora. Es lo mismo que pide cualquier empresa al digitalizar un proceso: entender cómo trabaja la gente, automatizar lo repetitivo y cuidar la experiencia.</dd></div></dl>
+          <div class="product-tail"><div class="product-meta"><ul class="chips"><li>Next.js 15</li><li>React 19</li><li>Firebase</li><li>Google Workspace</li><li>Stripe</li><li>UX/UI</li></ul><a class="link" href="https://www.elespaciolugar.com">Visitar el sitio</a></div><ul class="results">
+            <li>Sitio público en línea en <b>elespaciolugar.com</b>, con pagos con Stripe en <b>modo live</b></li>
+            <li>Pensado para unas <b>36</b> alumnas en <b>3</b> horarios, sin cambiar de herramienta</li>
+            <li><b>85</b> commits en iteraciones por fases con la clienta</li>
+          </ul></div>
+        </div>
       </article>
 
-      <article class="case luma">
-        <div>
+      <article class="case luma product-case">
+        <header class="product-head">
           <p class="area">Producto móvil, UX/UI y desarrollo Android</p>
-          <h3>LUMA: una app de música para Android pensada como refugio, no como feed</h3>
-          <p class="value">Diseñé la identidad completa y desarrollo la app nativa: importas tu propia música, suena en segundo plano y se presenta en espacios atmosféricos, sin streaming ni algoritmos que decidan por ti.</p>
-          <dl>
-            <dt>El problema</dt><dd>Las apps de música se volvieron feeds: recomendaciones, anuncios y ruido. Quien tiene su propia biblioteca (MP3, WAV o producciones propias) no tiene un lugar cuidado para escucharla.</dd>
-            <dt>Lo que construí</dt><dd>La identidad es mía: el concepto ("una cabaña en el bosque, en píxeles"), el símbolo de una luz cálida sobre el horizonte con 8 variantes, la paleta de pino, niebla y piedra, y el sistema tipográfico. Claude Design la ordenó en un sistema que los agentes de IA consumen al construir la interfaz. La app es nativa, en Kotlin con Jetpack Compose y Media3: importa MP3, WAV y bibliotecas ZIP por carpetas, arma playlists automáticas, lee las carátulas reales de cada archivo con un respaldo de marca, sigue sonando con la pantalla bloqueada (MediaSession) y tiene un modo silencioso y espacios como Fog, Pines y Snow.</dd>
-            <dt>Por qué importa</dt><dd>Una auditoría de producto con Claude Code, en modo solo lectura, encontró que la interfaz mostraba integraciones con plataformas de streaming que todavía no existían. Las saqué con Codex el mismo día. Esas integraciones siguen en el plan, pero no se muestran hasta que funcionen: una función que la interfaz promete y no cumple es peor que no tenerla.</dd>
-          </dl>
-          <ul class="chips"><li>Kotlin</li><li>Jetpack Compose</li><li>Media3 / ExoPlayer</li><li>Android Studio</li><li>Gemini</li><li>Claude Code</li><li>Codex</li><li>Identidad visual</li></ul>
-          <ul class="results">
-            <li>App instalada y en uso en mi Android: importación, reproducción en segundo plano y carátulas reales</li>
-            <li>Identidad completa: símbolo con <b>8</b> variantes, paleta, tipografía, UI y carátulas</li>
-            <li>Compilación y pruebas unitarias con Gradle verificadas en cada sprint</li>
-          </ul>
-          <a class="link" href="https://github.com/veneland/portafolio/tree/main/casos/08-luma">Ver el caso completo</a>
-        </div>
+          <div class="product-title-row">
+            <div><h3>LUMA</h3><p class="product-subtitle">una app de música para Android pensada como refugio, no como feed</p></div>
+            <img class="product-logo" src="img/luma-logo-dark.svg" alt="" aria-hidden="true" width="373" height="259" loading="lazy">
+          </div>
+        </header>
         <div class="visual has-phone">
           <figure>
             <div class="frame"><img src="img/luma-identidad-hero-desktop.webp" alt="Identidad de LUMA: una luz cálida sobre una línea de horizonte, el logotipo luma y la frase Music without noise." width="1600" height="833" loading="lazy"></div>
@@ -468,6 +507,17 @@ img { max-width: 100%; height: auto; display: block; }
             </div>
           </div>
         </div>
+        <div class="product-story">
+          <p class="value">Diseñé la identidad completa y desarrollo la app nativa: importas tu propia música, suena en segundo plano y se presenta en espacios atmosféricos, sin streaming ni algoritmos que decidan por ti.</p>
+          <dl class="product-details"><div><dt>El problema</dt><dd>Las apps de música se volvieron feeds: recomendaciones, anuncios y ruido. Quien tiene su propia biblioteca (MP3, WAV o producciones propias) no tiene un lugar cuidado para escucharla.</dd></div>
+<div><dt>Lo que construí</dt><dd>La identidad es mía: el concepto ("una cabaña en el bosque, en píxeles"), el símbolo de una luz cálida sobre el horizonte con 8 variantes, la paleta de pino, niebla y piedra, y el sistema tipográfico. Claude Design la ordenó en un sistema que los agentes de IA consumen al construir la interfaz. La app es nativa, en Kotlin con Jetpack Compose y Media3: importa MP3, WAV y bibliotecas ZIP por carpetas, arma playlists automáticas, lee las carátulas reales de cada archivo con un respaldo de marca, sigue sonando con la pantalla bloqueada (MediaSession) y tiene un modo silencioso y espacios como Fog, Pines y Snow.</dd></div>
+<div><dt>¿Por qué importa?</dt><dd>Una auditoría de producto con Claude Code, en modo solo lectura, encontró que la interfaz mostraba integraciones con plataformas de streaming que todavía no existían. Las saqué con Codex el mismo día. Esas integraciones siguen en el plan, pero no se muestran hasta que funcionen: una función que la interfaz promete y no cumple es peor que no tenerla.</dd></div></dl>
+          <div class="product-tail"><div class="product-meta"><ul class="chips"><li>Kotlin</li><li>Jetpack Compose</li><li>Media3 / ExoPlayer</li><li>Android Studio</li><li>Gemini</li><li>Claude Code</li><li>Codex</li><li>Identidad visual</li></ul><a class="link" href="https://github.com/veneland/portafolio/tree/main/casos/08-luma">Ver el caso completo</a></div><ul class="results">
+            <li>App instalada y en uso en mi Android: importación, reproducción en segundo plano y carátulas reales</li>
+            <li>Identidad completa: símbolo con <b>8</b> variantes, paleta, tipografía, UI y carátulas</li>
+            <li>Compilación y pruebas unitarias con Gradle verificadas en cada sprint</li>
+          </ul></div>
+        </div>
       </article>
 
       <article class="case">
@@ -478,7 +528,7 @@ img { max-width: 100%; height: auto; display: block; }
           <dl>
             <dt>El problema</dt><dd>Para saber qué pasaba en 10 cuentas había que abrir cada terminal. No había historial, ni alertas si un terminal se caía, ni reportes periódicos.</dd>
             <dt>Lo que construí</dt><dd>Un EA envía cada evento a n8n, que lo guarda en PostgreSQL y lo publica en Telegram, en el hilo de su cuenta. Flujos programados arman los resúmenes diarios y semanales y vigilan que cada terminal siga vivo. Un dashboard con login seguro muestra el estado completo.</dd>
-            <dt>Por qué importa</dt><dd>Es el mismo problema que en operaciones industriales: supervisar sistemas que corren solos, con alertas confiables, historial y reportes automáticos en lugar de revisiones manuales.</dd>
+            <dt>¿Por qué importa?</dt><dd>Es el mismo problema que en operaciones industriales: supervisar sistemas que corren solos, con alertas confiables, historial y reportes automáticos en lugar de revisiones manuales.</dd>
           </dl>
           <ul class="chips"><li>n8n</li><li>PostgreSQL</li><li>Telegram</li><li>MQL5</li><li>Next.js</li><li>Docker</li></ul>
           <ul class="results">
@@ -504,7 +554,7 @@ img { max-width: 100%; height: auto; display: block; }
           <dl>
             <dt>El problema</dt><dd>Usar varias IA a la vez sin método termina en cambios que nadie revisó, contexto perdido entre sesiones y riesgos con credenciales.</dd>
             <dt>Lo que construí</dt><dd>Un VPS de orquestación: cada agente trabaja en su propia copia del código (git worktrees), con roles definidos (8 subagentes), 12 skills propias y un tablero de tareas compartido. Nada se integra sin pruebas y revisión. Los agentes solo tocan el entorno de desarrollo y las credenciales viven en un gestor de secretos.</dd>
-            <dt>Por qué importa</dt><dd>Las empresas están pasando de usar un chat a coordinar varios agentes. El desafío ya no es generar código, sino gobernarlo: repartir el trabajo, revisarlo y decidir qué pasa a producción.</dd>
+            <dt>¿Por qué importa?</dt><dd>Las empresas están pasando de usar un chat a coordinar varios agentes. El desafío ya no es generar código, sino gobernarlo: repartir el trabajo, revisarlo y decidir qué pasa a producción.</dd>
           </dl>
           <ul class="chips"><li>Claude Code</li><li>Codex</li><li>Antigravity</li><li>OpenCode</li><li>git</li><li>Infisical</li></ul>
           <ul class="results">
@@ -530,7 +580,7 @@ img { max-width: 100%; height: auto; display: block; }
           <dl>
             <dt>El problema</dt><dd>Compilar, lanzar el tester y copiar resultados eran pasos manuales que cortaban el trabajo de los agentes.</dd>
             <dt>Lo que construí</dt><dd>Dos servidores MCP. Uno compila EAs y corre, compara y analiza backtests de MT5, con un módulo de seguridad que le impide enviar órdenes reales. El otro gestiona tareas en TickTick con OAuth 2.0 y una vista previa antes de crear tareas en lote.</dd>
-            <dt>Por qué importa</dt><dd>MCP es el estándar abierto para conectar agentes con herramientas y datos. Construir servidores propios con límites claros es lo que permite usar agentes en procesos reales sin riesgo.</dd>
+            <dt>¿Por qué importa?</dt><dd>MCP es el estándar abierto para conectar agentes con herramientas y datos. Construir servidores propios con límites claros es lo que permite usar agentes en procesos reales sin riesgo.</dd>
           </dl>
           <ul class="chips"><li>MCP</li><li>Python</li><li>TypeScript</li><li>OAuth 2.0</li><li>pytest</li><li>zod</li></ul>
           <ul class="results">
@@ -556,7 +606,7 @@ img { max-width: 100%; height: auto; display: block; }
           <dl>
             <dt>El problema</dt><dd>El servidor había quedado chico y no podía detenerse: de él dependían 10 terminales de trading y toda la automatización.</dd>
             <dt>Lo que construí</dt><dd>Un plan por fases con backups verificados por checksum, restauraciones de prueba antes del corte, cambio de DNS planificado, traspaso instancia por instancia y una auditoría Go/No-Go antes de cancelar el servidor viejo. Esa auditoría detectó un riesgo real y frenó la cancelación hasta resolverlo.</dd>
-            <dt>Por qué importa</dt><dd>Mover sistemas en vivo es una de las tareas de mayor riesgo en infraestructura. Lo que marca la diferencia es el método: probar antes de cortar y saber frenar a tiempo.</dd>
+            <dt>¿Por qué importa?</dt><dd>Mover sistemas en vivo es una de las tareas de mayor riesgo en infraestructura. Lo que marca la diferencia es el método: probar antes de cortar y saber frenar a tiempo.</dd>
           </dl>
           <ul class="chips"><li>Coolify</li><li>Docker</li><li>PostgreSQL</li><li>n8n</li><li>Wine + Xvfb</li><li>Cloudflare</li></ul>
           <ul class="results">
